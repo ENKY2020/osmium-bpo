@@ -1,0 +1,679 @@
+/* =========================================================
+   OSMIUM BPO — SERVICES
+   Interactive service discovery
+========================================================= */
+
+.servicesSection {
+  position: relative;
+  padding: 0 0 140px;
+  background: var(--cream, #f7f5ef);
+  color: var(--navy, #07182b);
+  overflow: hidden;
+}
+
+.sectionContainer {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.sectionTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 34px 0 18px;
+  border-bottom: 1px solid rgba(7, 24, 43, 0.14);
+}
+
+.sectionEyebrow {
+  margin: 0;
+  color: var(--gold, #e9a900);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  line-height: 1.2;
+}
+
+.sectionIndex {
+  color: rgba(7, 24, 43, 0.42);
+  font-family: var(--font-geist-mono, monospace);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.servicesHeading {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(280px, 0.65fr);
+  gap: 80px;
+  align-items: end;
+  padding: 68px 0 56px;
+}
+
+.displayHeading {
+  max-width: 720px;
+  margin: 0;
+  color: var(--navy, #07182b);
+  font-family: var(
+    --font-playfair,
+    "Playfair Display",
+    Georgia,
+    serif
+  );
+  font-size: clamp(54px, 6vw, 82px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.92;
+}
+
+.displayHeading em {
+  display: block;
+  color: var(--gold, #e9a900);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.servicesHeading > p {
+  max-width: 420px;
+  margin: 0 0 4px;
+  color: rgba(7, 24, 43, 0.68);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   SERVICE GRID
+========================================================= */
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(7, 24, 43, 0.15);
+  border-left: 1px solid rgba(7, 24, 43, 0.15);
+}
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.serviceCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 310px;
+  border-right: 1px solid rgba(7, 24, 43, 0.15);
+  border-bottom: 1px solid rgba(7, 24, 43, 0.15);
+  overflow: hidden;
+  background: transparent;
+  color: var(--navy, #07182b);
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease;
+}
+
+/* =========================================================
+   NAVY INTERACTION SWEEP
+========================================================= */
+
+.serviceCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--navy, #07182b);
+  transform: translateY(101%);
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.serviceCard:hover::before,
+.serviceCard:focus-within::before,
+.serviceCardActive::before {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   CARD BUTTON
+========================================================= */
+
+.serviceCardButton {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  min-height: 310px;
+  padding: 28px 26px 30px;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.serviceCardButton:focus {
+  outline: none;
+}
+
+.serviceCardButton:focus-visible {
+  outline: 2px solid var(--gold, #f4b41a);
+  outline-offset: -2px;
+}
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.serviceCardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.serviceCardTop span {
+  color: var(--gold, #e9a900);
+  font-family: var(--font-geist-mono, monospace);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.serviceCardTop strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold, #e9a900);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  transition:
+    transform 0.35s ease,
+    color 0.35s ease;
+}
+
+.serviceCard:hover .serviceCardTop strong,
+.serviceCard:focus-within .serviceCardTop strong {
+  transform: translate(4px, -4px);
+}
+
+.serviceCardArrowActive {
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.serviceCardBottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.serviceCardBottom > p {
+  margin: 0 0 16px;
+  color: rgba(7, 24, 43, 0.48);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  line-height: 1.3;
+  transition: color 0.35s ease;
+}
+
+.serviceCard h3 {
+  max-width: 310px;
+  margin: 0;
+  color: var(--navy, #07182b);
+  font-family: var(
+    --font-playfair,
+    "Playfair Display",
+    Georgia,
+    serif
+  );
+  font-size: clamp(27px, 2.4vw, 35px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  transition: color 0.35s ease;
+}
+
+.serviceCardRule {
+  width: 40px;
+  height: 1px;
+  margin: 18px 0 16px;
+  background: var(--gold, #e9a900);
+  transition: width 0.45s ease;
+}
+
+.serviceCard:hover .serviceCardRule,
+.serviceCard:focus-within .serviceCardRule,
+.serviceCardActive .serviceCardRule {
+  width: 70px;
+}
+
+.serviceCardBottom > span {
+  max-width: 330px;
+  color: rgba(7, 24, 43, 0.62);
+  font-size: 11px;
+  line-height: 1.65;
+  transition: color 0.35s ease;
+}
+
+/* =========================================================
+   ACTIVE CARD COLOURS
+========================================================= */
+
+.serviceCard:hover h3,
+.serviceCard:focus-within h3,
+.serviceCardActive h3 {
+  color: #ffffff;
+}
+
+.serviceCard:hover .serviceCardBottom > p,
+.serviceCard:focus-within .serviceCardBottom > p,
+.serviceCardActive .serviceCardBottom > p {
+  color: var(--gold, #f4b41a);
+}
+
+.serviceCard:hover .serviceCardBottom > span,
+.serviceCard:focus-within .serviceCardBottom > span,
+.serviceCardActive .serviceCardBottom > span {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+/* =========================================================
+   EXPANDED SERVICE DETAIL
+========================================================= */
+
+.serviceDetail {
+  position: relative;
+  z-index: 3;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.serviceDetailInner {
+  padding: 26px 26px 30px;
+}
+
+/* =========================================================
+   DETAIL EYEBROW
+========================================================= */
+
+.serviceDetailEyebrow {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--gold, #f4b41a);
+  font-family: var(--font-geist-mono, monospace);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+/* =========================================================
+   DETAIL HEADING
+========================================================= */
+
+.serviceDetail h4 {
+  margin: 0 0 20px;
+  color: #ffffff;
+  font-family: var(
+    --font-playfair,
+    "Playfair Display",
+    Georgia,
+    serif
+  );
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+/* =========================================================
+   CAPABILITIES
+========================================================= */
+
+.serviceCapabilities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.serviceCapabilities li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  min-height: 42px;
+  padding: 12px 8px 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.serviceCapabilities li:nth-child(even) {
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.serviceCapabilities li span {
+  flex: 0 0 auto;
+  color: var(--gold, #f4b41a);
+  font-family: var(--font-geist-mono, monospace);
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   VALUE BLOCK
+========================================================= */
+
+.serviceValue {
+  margin: 0 0 24px;
+  padding: 16px 16px 17px;
+  border-left: 2px solid var(--gold, #f4b41a);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.serviceValueLabel {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--gold, #f4b41a);
+  font-family: var(--font-geist-mono, monospace);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.serviceValue p {
+  max-width: 390px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   DETAIL CTA
+========================================================= */
+
+.serviceDetailLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.serviceDetailLink span {
+  color: var(--gold, #f4b41a);
+  transition: transform 0.3s ease;
+}
+
+.serviceDetailLink:hover {
+  color: var(--gold, #f4b41a);
+}
+
+.serviceDetailLink:hover span,
+.serviceDetailLink:focus-visible span {
+  transform: translate(4px, -4px);
+}
+
+.serviceDetailLink:focus-visible {
+  outline: 2px solid var(--gold, #f4b41a);
+  outline-offset: 5px;
+}
+
+/* =========================================================
+   SUPPORTING NOTE
+========================================================= */
+
+.servicesNote {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(7, 24, 43, 0.14);
+}
+
+.servicesNoteLine {
+  width: 30px;
+  height: 1px;
+  flex: 0 0 auto;
+  background: var(--gold, #e9a900);
+}
+
+.servicesNote p {
+  flex: 1;
+  margin: 0;
+  color: rgba(7, 24, 43, 0.52);
+  font-size: 11px;
+}
+
+.servicesNote a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--navy, #07182b);
+  font-family: var(
+    --font-playfair,
+    "Playfair Display",
+    Georgia,
+    serif
+  );
+  font-size: 16px;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.servicesNote a span {
+  color: var(--gold, #e9a900);
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  transition: transform 0.3s ease;
+}
+
+.servicesNote a:hover span,
+.servicesNote a:focus-visible span {
+  transform: translate(3px, -3px);
+}
+
+.servicesNote a:focus-visible {
+  outline: 2px solid var(--gold, #f4b41a);
+  outline-offset: 5px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .servicesSection {
+    padding-bottom: 110px;
+  }
+
+  .servicesHeading {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 56px 0 44px;
+  }
+
+  .servicesHeading > p {
+    max-width: 600px;
+  }
+
+  .serviceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .serviceCard,
+  .serviceCardButton {
+    min-height: 290px;
+  }
+
+  .serviceDetailInner {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .servicesSection {
+    padding-bottom: 80px;
+  }
+
+  .sectionContainer {
+    width: min(100% - 32px, 560px);
+  }
+
+  .sectionTop {
+    padding-top: 28px;
+  }
+
+  .servicesHeading {
+    gap: 24px;
+    padding: 46px 0 36px;
+  }
+
+  .displayHeading {
+    font-size: clamp(48px, 14vw, 68px);
+    line-height: 0.9;
+  }
+
+  .servicesHeading > p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .serviceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceCard,
+  .serviceCardButton {
+    min-height: 270px;
+  }
+
+  .serviceCardButton {
+    padding: 24px 22px 26px;
+  }
+
+  .serviceCard h3 {
+    font-size: 31px;
+  }
+
+  .serviceDetailInner {
+    padding: 24px 22px 26px;
+  }
+
+  .serviceDetail h4 {
+    font-size: 24px;
+  }
+
+  .serviceCapabilities {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceCapabilities li {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .serviceCapabilities li:nth-child(even) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .servicesNote {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .servicesNote p {
+    flex: 1 1 calc(100% - 44px);
+  }
+
+  .servicesNote a {
+    width: 100%;
+    margin-left: 44px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 400px) {
+  .sectionContainer {
+    width: min(100% - 24px, 560px);
+  }
+
+  .displayHeading {
+    font-size: 46px;
+  }
+
+  .serviceCardButton {
+    padding: 22px 18px 24px;
+  }
+
+  .serviceCard h3 {
+    font-size: 28px;
+  }
+
+  .serviceDetailInner {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .serviceValue {
+    padding: 14px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .serviceCard,
+  .serviceCard::before,
+  .serviceCardTop strong,
+  .serviceCardRule,
+  .serviceCard h3,
+  .serviceCardBottom > p,
+  .serviceCardBottom > span,
+  .serviceDetailLink,
+  .serviceDetailLink span,
+  .servicesNote a span {
+    transition: none;
+  }
+}

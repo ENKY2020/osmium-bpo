@@ -1,0 +1,371 @@
+.page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #061426;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.backgroundGlow {
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(248, 181, 24, 0.12) 0%,
+    rgba(248, 181, 24, 0.04) 38%,
+    transparent 70%
+  );
+  top: -220px;
+  right: -160px;
+  pointer-events: none;
+}
+
+.backgroundGlowTwo {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.07) 0%,
+    transparent 70%
+  );
+  bottom: -240px;
+  left: -180px;
+  pointer-events: none;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.15) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.15) 1px,
+      transparent 1px
+    );
+  background-size: 70px 70px;
+  pointer-events: none;
+}
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 70px;
+  align-items: center;
+}
+
+/* =========================================================
+   BRAND SIDE
+========================================================= */
+
+.brandSide {
+  padding: 30px 0;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 70px;
+}
+
+.logoMark {
+  width: 46px;
+  height: 46px;
+  border: 2px solid #f8b518;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logoMark::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+
+.logoMark::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #f8b518;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoName {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.logoTagline {
+  font-size: 7px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 2px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #f8b518;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: #f8b518;
+}
+
+.heading {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  margin: 0;
+  max-width: 650px;
+}
+
+.headingAccent {
+  color: #f8b518;
+  font-style: italic;
+}
+
+.description {
+  margin-top: 30px;
+  max-width: 500px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.footerText {
+  margin-top: 60px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 12px;
+}
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.cardWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card {
+  width: 100%;
+  max-width: 450px;
+  padding: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.cardEyebrow {
+  color: #f8b518;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.cardTitle {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 42px;
+  line-height: 1.05;
+  font-weight: 500;
+  margin: 0;
+  color: #ffffff;
+}
+
+.cardDescription {
+  margin: 16px 0 32px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   GOOGLE BUTTON
+========================================================= */
+
+.googleButton {
+  width: 100%;
+  height: 54px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  color: #071426;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.googleButton:hover {
+  transform: translateY(-2px);
+  background: #f8b518;
+  box-shadow: 0 12px 30px rgba(248, 181, 24, 0.2);
+}
+
+.googleIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 11px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.security {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.securityDot {
+  width: 7px;
+  height: 7px;
+  background: #f8b518;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+  .page {
+    padding: 30px 18px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .brandSide {
+    padding: 10px 0;
+  }
+
+  .logo {
+    margin-bottom: 45px;
+  }
+
+  .heading {
+    font-size: clamp(48px, 13vw, 70px);
+  }
+
+  .description,
+  .footerText {
+    display: none;
+  }
+
+  .cardWrapper {
+    justify-content: stretch;
+  }
+
+  .card {
+    max-width: none;
+    padding: 34px 26px;
+  }
+
+  .cardTitle {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    align-items: flex-start;
+    padding-top: 25px;
+  }
+
+  .logo {
+    margin-bottom: 35px;
+  }
+
+  .heading {
+    font-size: 46px;
+  }
+
+  .card {
+    padding: 30px 22px;
+  }
+}

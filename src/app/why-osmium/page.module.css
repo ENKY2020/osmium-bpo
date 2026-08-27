@@ -1,0 +1,1528 @@
+/* =========================================================
+   OSMIUM BPO — WHY OSMIUM
+   Editorial / trust / differentiation page
+   ========================================================= */
+
+.page {
+  --navy: #061a2d;
+  --navy-deep: #031321;
+  --navy-soft: #0c243b;
+
+  --gold: #f5b51b;
+  --gold-deep: #d99a00;
+
+  --cream: #f5f3ed;
+  --white: #ffffff;
+  --ink: #09213a;
+
+  --muted: #607084;
+  --muted-light: #aeb9c5;
+
+  --line: rgba(9, 33, 58, 0.14);
+  --line-light: rgba(255, 255, 255, 0.14);
+
+  min-height: 100vh;
+
+  background: var(--cream);
+  color: var(--ink);
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   SHARED LABELS
+   ========================================================= */
+
+.eyebrow,
+.sectionEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: var(--gold);
+}
+
+.sectionEyebrow {
+  color: var(--gold-deep);
+}
+
+.eyebrowLine {
+  width: 32px;
+  height: 1px;
+
+  flex: 0 0 auto;
+
+  background: currentColor;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.sectionIndex {
+  color: #87929f;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(390px, 0.68fr);
+
+  min-height: 720px;
+
+  background:
+    radial-gradient(
+      circle at 78% 40%,
+      rgba(245, 181, 27, 0.09),
+      transparent 31%
+    ),
+    var(--navy);
+
+  color: var(--white);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding:
+    115px
+    clamp(42px, 7vw, 110px)
+    95px;
+}
+
+.heroKicker {
+  margin: 30px 0 18px;
+
+  color: #aeb9c6;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  max-width: 860px;
+
+  margin: 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(62px, 7.1vw, 112px);
+  font-weight: 500;
+
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.heroTitle em {
+  display: block;
+
+  color: var(--gold);
+
+  font-style: italic;
+  font-weight: 500;
+}
+
+.heroBottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  max-width: 850px;
+
+  margin-top: 58px;
+  padding-top: 26px;
+
+  gap: 40px;
+
+  border-top: 1px solid var(--line-light);
+}
+
+.heroBottom p {
+  max-width: 570px;
+
+  margin: 0;
+
+  color: #bac5d0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.heroLink {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 14px;
+
+  color: var(--white);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    color 180ms ease,
+    gap 180ms ease;
+}
+
+.heroLink span {
+  color: var(--gold);
+
+  font-size: 17px;
+}
+
+.heroLink:hover {
+  color: var(--gold);
+  gap: 20px;
+}
+
+/* =========================================================
+   HERO VISUAL
+   ========================================================= */
+
+.heroVisual {
+  position: relative;
+
+  min-height: 720px;
+
+  overflow: hidden;
+
+  border-left: 1px solid var(--line-light);
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(245, 181, 27, 0.07),
+      transparent 38%
+    ),
+    var(--navy-deep);
+}
+
+.heroVisualFrame {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.heroVisualFrame::before,
+.heroVisualFrame::after {
+  content: "";
+
+  position: absolute;
+
+  border: 1px solid rgba(245, 181, 27, 0.28);
+
+  border-radius: 50%;
+}
+
+.heroVisualFrame::before {
+  width: 690px;
+  height: 690px;
+}
+
+.heroVisualFrame::after {
+  width: 470px;
+  height: 470px;
+
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.heroVisualCircle {
+  position: relative;
+  z-index: 2;
+
+  width: 150px;
+  height: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(245, 181, 27, 0.11),
+      transparent 65%
+    );
+
+  box-shadow:
+    0 0 0 22px rgba(245, 181, 27, 0.025),
+    0 0 80px rgba(245, 181, 27, 0.08);
+
+  animation: heroPulse 7s ease-in-out infinite;
+}
+
+.heroVisualCircle::before,
+.heroVisualCircle::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+}
+
+.heroVisualCircle::before {
+  width: 9px;
+  height: 9px;
+
+  top: 23px;
+
+  background: var(--gold);
+}
+
+.heroVisualCircle::after {
+  width: 1px;
+  height: 48px;
+
+  bottom: -70px;
+
+  background: rgba(245, 181, 27, 0.55);
+}
+
+.heroVisualCircle span {
+  color: var(--gold);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 42px;
+  font-style: italic;
+}
+
+.heroVisualLabel {
+  position: absolute;
+
+  bottom: 11%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: #8e9aaa;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+
+  white-space: nowrap;
+}
+
+.heroVisualNumber {
+  position: absolute;
+
+  top: 11%;
+  right: 9%;
+
+  color: var(--gold);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+/* =========================================================
+   PROBLEM
+   ========================================================= */
+
+.problemSection {
+  padding: 105px 7vw 125px;
+
+  background: var(--cream);
+}
+
+.problemGrid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 0.62fr);
+
+  gap: 9vw;
+
+  padding-top: 78px;
+}
+
+.problemGrid h2 {
+  max-width: 780px;
+
+  margin: 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(55px, 6.2vw, 98px);
+  font-weight: 500;
+
+  line-height: 0.93;
+  letter-spacing: -0.045em;
+}
+
+.problemGrid h2 em {
+  display: block;
+
+  color: var(--gold-deep);
+
+  font-style: italic;
+}
+
+.problemContent {
+  align-self: center;
+
+  max-width: 570px;
+
+  color: #52677d;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+
+  line-height: 1.85;
+}
+
+.problemContent p {
+  margin: 0 0 25px;
+}
+
+.problemContent p:last-child {
+  margin-bottom: 0;
+}
+
+.problemContent .lead {
+  color: var(--ink);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 23px;
+
+  line-height: 1.45;
+}
+
+/* =========================================================
+   DIFFERENCE
+   ========================================================= */
+
+.differenceSection {
+  padding: 105px 7vw 125px;
+
+  background: #f8f6f0;
+}
+
+.differenceIntro {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(280px, 0.5fr);
+
+  gap: 8vw;
+
+  padding: 70px 0 62px;
+}
+
+.differenceIntro h2 {
+  max-width: 720px;
+
+  margin: 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(52px, 6vw, 94px);
+  font-weight: 500;
+
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.differenceIntro h2 em {
+  display: block;
+
+  color: var(--gold-deep);
+
+  font-style: italic;
+}
+
+.differenceIntro > p {
+  align-self: end;
+
+  max-width: 470px;
+
+  margin: 0;
+
+  color: #52677d;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+
+  line-height: 1.85;
+}
+
+.differenceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.differenceCard {
+  position: relative;
+
+  min-height: 320px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 30px;
+
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  background: rgba(255, 255, 255, 0.16);
+
+  transition:
+    background 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.differenceCard:hover {
+  z-index: 2;
+
+  background: var(--navy);
+  color: var(--white);
+
+  transform: translateY(-4px);
+}
+
+.cardNumber {
+  color: var(--gold-deep);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+.cardContent {
+  max-width: 500px;
+}
+
+.cardContent h3 {
+  max-width: 450px;
+
+  margin: 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+.cardRule {
+  display: block;
+
+  width: 40px;
+  height: 1px;
+
+  margin: 20px 0;
+
+  background: var(--gold);
+}
+
+.cardContent p {
+  max-width: 470px;
+
+  margin: 0;
+
+  color: #607286;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+
+  line-height: 1.75;
+}
+
+.differenceCard:hover .cardContent p {
+  color: #b7c4d1;
+}
+
+.cardArrow {
+  position: absolute;
+
+  top: 28px;
+  right: 30px;
+
+  color: var(--gold);
+
+  font-size: 17px;
+}
+
+/* =========================================================
+   PHILOSOPHY
+   ========================================================= */
+
+.philosophySection {
+  display: grid;
+  grid-template-columns:
+    minmax(380px, 0.8fr)
+    minmax(0, 1.2fr);
+
+  background: var(--navy);
+
+  color: var(--white);
+}
+
+.philosophyVisual {
+  position: relative;
+
+  min-height: 700px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(245, 181, 27, 0.08),
+      transparent 42%
+    ),
+    var(--navy-deep);
+}
+
+.philosophyOrbit {
+  position: absolute;
+
+  border: 1px solid rgba(245, 181, 27, 0.28);
+
+  border-radius: 50%;
+}
+
+.philosophyOrbitOuter {
+  width: 620px;
+  height: 620px;
+}
+
+.philosophyOrbitMiddle {
+  width: 400px;
+  height: 400px;
+
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.philosophyOrbit span {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  top: 50%;
+  left: -3px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+}
+
+.philosophyCore {
+  position: relative;
+  z-index: 2;
+
+  width: 135px;
+  height: 135px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+
+  background: var(--navy);
+
+  box-shadow:
+    0 0 0 18px rgba(245, 181, 27, 0.025),
+    0 0 80px rgba(245, 181, 27, 0.07);
+}
+
+.philosophyCore span {
+  color: var(--gold);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 40px;
+  font-style: italic;
+}
+
+.philosophyLabel {
+  position: absolute;
+
+  top: 21%;
+
+  color: #95a3b3;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.22em;
+}
+
+.philosophyContent {
+  padding: 105px clamp(40px, 6vw, 90px);
+}
+
+.philosophyContent h2 {
+  max-width: 670px;
+
+  margin: 34px 0 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(54px, 5.5vw, 88px);
+  font-weight: 500;
+
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.philosophyContent h2 em {
+  color: var(--gold);
+
+  font-style: italic;
+}
+
+.philosophyLead {
+  max-width: 590px;
+
+  margin: 32px 0 0;
+
+  color: #b7c3cf;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+.philosophyEquation {
+  display: flex;
+  align-items: center;
+
+  max-width: 590px;
+
+  margin-top: 52px;
+  padding-top: 24px;
+
+  gap: 20px;
+
+  border-top: 1px solid var(--line-light);
+
+  color: var(--white);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+.philosophyEquation b {
+  color: var(--gold);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 18px;
+}
+
+/* =========================================================
+   TRUST
+   ========================================================= */
+
+.trustSection {
+  padding: 105px 7vw 125px;
+
+  background: var(--cream);
+}
+
+.trustIntro {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(280px, 0.48fr);
+
+  gap: 8vw;
+
+  padding: 70px 0 62px;
+}
+
+.trustIntro h2 {
+  max-width: 820px;
+
+  margin: 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(50px, 5.8vw, 92px);
+  font-weight: 500;
+
+  line-height: 0.93;
+  letter-spacing: -0.045em;
+}
+
+.trustIntro h2 em {
+  display: block;
+
+  color: var(--gold-deep);
+
+  font-style: italic;
+}
+
+.trustIntro > p {
+  align-self: end;
+
+  max-width: 430px;
+
+  margin: 0;
+
+  color: #52677d;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+
+  line-height: 1.85;
+}
+
+.trustGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.trustCard {
+  min-height: 280px;
+
+  padding: 27px 25px;
+
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  transition:
+    background 220ms ease,
+    transform 220ms ease;
+}
+
+.trustCard:hover {
+  background: #ffffff;
+
+  transform: translateY(-3px);
+}
+
+.trustCard > span {
+  color: var(--gold-deep);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+.trustCard h3 {
+  margin: 90px 0 15px;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 29px;
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+.trustCard p {
+  margin: 0;
+
+  color: #607286;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   OPERATING MODEL
+   ========================================================= */
+
+.modelSection {
+  display: grid;
+  grid-template-columns:
+    minmax(380px, 0.78fr)
+    minmax(0, 1.22fr);
+
+  background: var(--navy);
+
+  color: var(--white);
+}
+
+.modelVisual {
+  position: relative;
+
+  min-height: 720px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(245, 181, 27, 0.075),
+      transparent 43%
+    ),
+    var(--navy-deep);
+}
+
+.modelVisual::before,
+.modelVisual::after {
+  content: "";
+
+  position: absolute;
+
+  border: 1px solid rgba(245, 181, 27, 0.27);
+
+  border-radius: 50%;
+}
+
+.modelVisual::before {
+  width: 610px;
+  height: 610px;
+}
+
+.modelVisual::after {
+  width: 390px;
+  height: 390px;
+
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.modelVisualInner {
+  position: relative;
+  z-index: 2;
+
+  width: 125px;
+  height: 125px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+
+  background: var(--navy);
+
+  box-shadow:
+    0 0 0 18px rgba(245, 181, 27, 0.025),
+    0 0 70px rgba(245, 181, 27, 0.07);
+}
+
+.modelVisualInner span {
+  color: var(--gold);
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 38px;
+  font-style: italic;
+}
+
+.modelContent {
+  padding: 105px clamp(40px, 6vw, 90px);
+}
+
+.modelContent h2 {
+  max-width: 670px;
+
+  margin: 34px 0 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(50px, 5.2vw, 84px);
+  font-weight: 500;
+
+  line-height: 0.93;
+  letter-spacing: -0.045em;
+}
+
+.modelContent h2 em {
+  display: block;
+
+  color: var(--gold);
+
+  font-style: italic;
+}
+
+.modelIntro {
+  max-width: 570px;
+
+  margin: 30px 0 50px;
+
+  color: #b5c1cd;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+.modelSteps {
+  max-width: 680px;
+
+  border-top: 1px solid var(--line-light);
+}
+
+.modelStep {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+
+  gap: 18px;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid var(--line-light);
+}
+
+.modelStep > span {
+  color: var(--gold);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+.modelStep h3 {
+  margin: 0 0 8px;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 27px;
+  font-weight: 500;
+}
+
+.modelStep p {
+  max-width: 540px;
+
+  margin: 0;
+
+  color: #aebbc8;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   SUMMARY / CTA
+   ========================================================= */
+
+.summarySection {
+  padding: 125px 7vw;
+
+  background:
+    radial-gradient(
+      circle at 82% 42%,
+      rgba(245, 181, 27, 0.08),
+      transparent 27%
+    ),
+    var(--cream);
+}
+
+.summaryInner {
+  max-width: 1120px;
+}
+
+.summaryInner h2 {
+  max-width: 1000px;
+
+  margin: 38px 0 0;
+
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(56px, 6.8vw, 108px);
+  font-weight: 500;
+
+  line-height: 0.91;
+  letter-spacing: -0.05em;
+}
+
+.summaryInner h2 em {
+  display: block;
+
+  color: var(--gold-deep);
+
+  font-style: italic;
+}
+
+.summaryInner > p {
+  max-width: 640px;
+
+  margin: 35px 0 0;
+
+  color: #52677d;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+.summaryActions {
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+
+  margin-top: 42px;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-width: 220px;
+
+  padding: 17px 21px;
+
+  gap: 40px;
+
+  background: var(--gold);
+  color: var(--navy);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.primaryButton span {
+  font-size: 16px;
+}
+
+.primaryButton:hover {
+  background: #ffc62e;
+
+  transform: translateY(-2px);
+}
+
+.secondaryLink {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 13px;
+
+  color: var(--ink);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    color 180ms ease,
+    gap 180ms ease;
+}
+
+.secondaryLink span {
+  color: var(--gold-deep);
+
+  font-size: 16px;
+}
+
+.secondaryLink:hover {
+  color: var(--gold-deep);
+
+  gap: 19px;
+}
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes heroPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 0 22px rgba(245, 181, 27, 0.025),
+      0 0 80px rgba(245, 181, 27, 0.08);
+  }
+
+  50% {
+    transform: scale(1.035);
+    box-shadow:
+      0 0 0 30px rgba(245, 181, 27, 0.02),
+      0 0 110px rgba(245, 181, 27, 0.12);
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .heroContent {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+
+  .problemSection,
+  .differenceSection,
+  .trustSection,
+  .summarySection {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+
+  .hero {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(350px, 0.64fr);
+  }
+
+  .trustGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .heroContent {
+    min-height: 610px;
+
+    padding: 95px 6vw 75px;
+  }
+
+  .heroVisual {
+    min-height: 540px;
+
+    border-top: 1px solid var(--line-light);
+    border-left: 0;
+  }
+
+  .problemGrid,
+  .differenceIntro,
+  .trustIntro {
+    grid-template-columns: 1fr;
+
+    gap: 42px;
+  }
+
+  .philosophySection,
+  .modelSection {
+    grid-template-columns: 1fr;
+  }
+
+  .philosophyVisual,
+  .modelVisual {
+    min-height: 560px;
+  }
+
+  .philosophyContent,
+  .modelContent {
+    padding-right: 6vw;
+    padding-left: 6vw;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .heroContent {
+    padding: 78px 28px 65px;
+  }
+
+  .heroTitle {
+    font-size: clamp(52px, 12vw, 78px);
+  }
+
+  .heroBottom {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 25px;
+
+    margin-top: 45px;
+  }
+
+  .heroVisual {
+    min-height: 440px;
+  }
+
+  .heroVisualFrame::before {
+    width: 500px;
+    height: 500px;
+  }
+
+  .heroVisualFrame::after {
+    width: 340px;
+    height: 340px;
+  }
+
+  .problemSection,
+  .differenceSection,
+  .trustSection,
+  .summarySection {
+    padding: 80px 28px 90px;
+  }
+
+  .problemGrid,
+  .differenceIntro,
+  .trustIntro {
+    padding-top: 52px;
+  }
+
+  .problemGrid h2,
+  .differenceIntro h2,
+  .trustIntro h2,
+  .summaryInner h2 {
+    font-size: clamp(48px, 11vw, 72px);
+  }
+
+  .differenceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .differenceCard {
+    min-height: 290px;
+  }
+
+  .philosophyVisual,
+  .modelVisual {
+    min-height: 440px;
+  }
+
+  .philosophyOrbitOuter {
+    width: 470px;
+    height: 470px;
+  }
+
+  .philosophyOrbitMiddle {
+    width: 310px;
+    height: 310px;
+  }
+
+  .philosophyContent,
+  .modelContent {
+    padding: 80px 28px;
+  }
+
+  .philosophyContent h2,
+  .modelContent h2 {
+    font-size: clamp(48px, 11vw, 72px);
+  }
+
+  .trustGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .trustCard {
+    min-height: 240px;
+  }
+
+  .trustCard h3 {
+    margin-top: 65px;
+  }
+
+  .philosophyEquation {
+    flex-wrap: wrap;
+
+    gap: 13px;
+  }
+
+  .summaryActions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .heroContent {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .heroTitle {
+    font-size: 50px;
+  }
+
+  .heroVisual {
+    min-height: 380px;
+  }
+
+  .heroVisualCircle {
+    width: 115px;
+    height: 115px;
+  }
+
+  .heroVisualCircle span {
+    font-size: 34px;
+  }
+
+  .heroVisualLabel {
+    bottom: 9%;
+
+    font-size: 7px;
+  }
+
+  .problemSection,
+  .differenceSection,
+  .trustSection,
+  .summarySection {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .problemContent .lead {
+    font-size: 21px;
+  }
+
+  .differenceCard {
+    min-height: 270px;
+
+    padding: 25px;
+  }
+
+  .cardContent h3 {
+    font-size: 29px;
+  }
+
+  .philosophyVisual,
+  .modelVisual {
+    min-height: 370px;
+  }
+
+  .philosophyOrbitOuter {
+    width: 380px;
+    height: 380px;
+  }
+
+  .philosophyOrbitMiddle {
+    width: 250px;
+    height: 250px;
+  }
+
+  .philosophyCore,
+  .modelVisualInner {
+    width: 100px;
+    height: 100px;
+  }
+
+  .philosophyCore span,
+  .modelVisualInner span {
+    font-size: 32px;
+  }
+
+  .philosophyContent,
+  .modelContent {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .modelStep {
+    grid-template-columns: 40px minmax(0, 1fr);
+
+    gap: 14px;
+  }
+
+  .summaryInner h2 {
+    font-size: 50px;
+  }
+
+  .primaryButton {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .heroVisualCircle {
+    animation: none;
+  }
+
+  .heroLink,
+  .differenceCard,
+  .trustCard,
+  .primaryButton,
+  .secondaryLink {
+    transition: none;
+  }
+}

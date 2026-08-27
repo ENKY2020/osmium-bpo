@@ -1,0 +1,281 @@
+/* =========================================================
+   OSMIUM BPO — FOOTER
+========================================================= */
+
+.footer {
+  position: relative;
+  background: #020c18;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.container {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* =========================================================
+   FOOTER TOP
+========================================================= */
+
+.footerTop {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  min-height: 150px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footerBrand {
+  display: inline-flex;
+  align-items: baseline;
+  width: fit-content;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.footerBrand em {
+  margin-left: 2px;
+  color: #f4b41a;
+  font-style: normal;
+}
+
+/* =========================================================
+   BRAND STATEMENT
+========================================================= */
+
+.footerStatement {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   CONVERSATION LINK
+========================================================= */
+
+.conversationLink {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.conversationLink strong {
+  color: #f4b41a;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.conversationLink:hover {
+  color: #f4b41a;
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   FOOTER MIDDLE
+========================================================= */
+
+.footerMiddle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 52px 0;
+}
+
+/* =========================================================
+   FOOTER MESSAGE
+========================================================= */
+
+.footerMessage span {
+  display: block;
+  margin-bottom: 14px;
+  color: #f4b41a;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.footerMessage p {
+  max-width: 300px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-family:
+    var(
+      --font-playfair,
+      "Playfair Display",
+      Georgia,
+      serif
+    );
+  font-size: 23px;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.footerNav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: start;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footerNav a {
+  display: flex;
+  align-items: center;
+  min-height: 54px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.footerNav a:hover {
+  padding-left: 7px;
+  color: #f4b41a;
+}
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-height: 64px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footerBottom > p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 8px;
+  letter-spacing: 0.02em;
+}
+
+.footerMeta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footerMeta span {
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 8px;
+  letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .footerTop {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footerStatement {
+    justify-self: end;
+  }
+
+  .conversationLink {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    padding-bottom: 26px;
+  }
+
+  .footerMiddle {
+    gap: 50px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 32px, 560px);
+  }
+
+  .footerTop {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 38px 0;
+  }
+
+  .footerStatement {
+    justify-self: auto;
+  }
+
+  .conversationLink {
+    padding-bottom: 0;
+  }
+
+  .footerMiddle {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding: 42px 0;
+  }
+
+  .footerMessage p {
+    max-width: 340px;
+    font-size: 21px;
+  }
+
+  .footerNav {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footerBottom {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    padding: 22px 0;
+  }
+
+  .footerMeta {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .conversationLink,
+  .footerNav a {
+    transition: none;
+  }
+}

@@ -1,0 +1,1277 @@
+/* =========================================================
+   OSMIUM BPO — SERVICES PAGE
+   Editorial BPO Experience
+   ========================================================= */
+
+/* =========================================================
+   FOUNDATION
+   ========================================================= */
+
+.servicesPage {
+  --navy: #071a2f;
+  --navy-deep: #041321;
+  --navy-soft: #0d243d;
+
+  --cream: #f5f3ee;
+  --cream-dark: #ebe8df;
+
+  --white: #ffffff;
+
+  --gold: #dca300;
+  --gold-bright: #f4bd18;
+
+  --text: #071a2f;
+  --muted: #657286;
+
+  --line: rgba(7, 26, 47, 0.14);
+  --dark-line: rgba(255, 255, 255, 0.13);
+
+  position: relative;
+  overflow: hidden;
+
+  background: var(--cream);
+  color: var(--text);
+}
+
+/*
+  The Services page intentionally has its own visual identity.
+  It should feel like a service catalogue / editorial document,
+  not like a duplicate of the homepage.
+*/
+
+.servicesPage section {
+  position: relative;
+}
+
+.container {
+  width: min(1180px, calc(100% - 96px));
+  margin: 0 auto;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+.servicesPage h1,
+.servicesPage h2,
+.servicesPage h3,
+.servicesPage h4 {
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+}
+
+.servicesPage em {
+  color: var(--gold);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-style: italic;
+  font-weight: 400;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  color: var(--gold);
+
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+
+  width: 32px;
+  height: 1px;
+
+  flex: 0 0 auto;
+
+  background: currentColor;
+}
+
+/* =========================================================
+   BUTTON SYSTEM
+   ========================================================= */
+
+.primaryButton,
+.secondaryButton,
+.textButton {
+  text-decoration: none;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  min-width: 215px;
+  min-height: 58px;
+
+  padding: 0 25px;
+
+  background: var(--gold);
+  border: 1px solid var(--gold);
+
+  color: var(--navy);
+
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+
+  transition:
+    transform 250ms ease,
+    background 250ms ease,
+    border-color 250ms ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-3px);
+
+  background: var(--gold-bright);
+  border-color: var(--gold-bright);
+}
+
+.textButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--white);
+
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+
+  transition:
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.textButton:hover {
+  color: var(--gold);
+  transform: translateX(4px);
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  min-height: 58px;
+
+  padding: 0 25px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  color: var(--white);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  transition:
+    transform 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease;
+}
+
+.secondaryButton:hover {
+  transform: translateY(-3px);
+
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.servicesHero {
+  min-height: 76vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 135px 0 110px;
+
+  background:
+    radial-gradient(
+      circle at 78% 35%,
+      rgba(220, 163, 0, 0.1),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(255, 255, 255, 0.025),
+      transparent 30%
+    ),
+    var(--navy);
+
+  color: var(--white);
+}
+
+.servicesHero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 90px 90px;
+
+  opacity: 0.25;
+
+  pointer-events: none;
+}
+
+.servicesHero::after {
+  content: "";
+
+  position: absolute;
+
+  right: -180px;
+  bottom: -300px;
+
+  width: 650px;
+  height: 650px;
+
+  border: 1px solid rgba(220, 163, 0, 0.17);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+
+  max-width: 950px;
+}
+
+.heroEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin-bottom: 24px;
+
+  color: var(--gold);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.eyebrowLine {
+  width: 32px;
+  height: 1px;
+
+  background: var(--gold);
+}
+
+.heroKicker {
+  margin: 0 0 22px;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  max-width: 930px;
+
+  margin: 0;
+
+  color: var(--white);
+
+  font-size: clamp(68px, 9vw, 126px);
+  font-weight: 400;
+
+  line-height: 0.87;
+  letter-spacing: -0.055em;
+}
+
+.heroTitle em {
+  display: inline-block;
+}
+
+.heroDescription {
+  max-width: 650px;
+
+  margin: 42px 0 34px;
+
+  color: rgba(255, 255, 255, 0.66);
+
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  flex-wrap: wrap;
+}
+
+.heroMeta {
+  position: absolute;
+
+  right: 0;
+  bottom: 22px;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+.heroMeta span {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+}
+
+.heroMeta span + span::before {
+  content: "×";
+
+  margin-right: 22px;
+
+  color: var(--gold);
+}
+
+/* =========================================================
+   SERVICE SECTION
+   ========================================================= */
+
+.serviceSection {
+  padding: 125px 0 0;
+
+  background: var(--cream);
+}
+
+.sectionIntro {
+  padding-bottom: 70px;
+}
+
+.sectionIntroTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.sectionCounter {
+  color: #8c97a5;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+.sectionIntroMain {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(300px, 0.75fr);
+
+  gap: 90px;
+
+  padding-top: 65px;
+}
+
+.sectionTitle {
+  margin: 0;
+
+  color: var(--navy);
+
+  font-size: clamp(52px, 6.2vw, 84px);
+  font-weight: 400;
+
+  line-height: 0.93;
+  letter-spacing: -0.05em;
+}
+
+.sectionDescription {
+  align-self: end;
+
+  max-width: 500px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+/* =========================================================
+   SERVICE GRID
+   ========================================================= */
+
+.serviceGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+/* =========================================================
+   SERVICE CARD
+   ========================================================= */
+
+.serviceCard {
+  position: relative;
+
+  min-height: 690px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 31px;
+
+  overflow: hidden;
+
+  background: var(--cream);
+
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  transition:
+    background 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.serviceCard::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 88% 12%,
+      rgba(220, 163, 0, 0.13),
+      transparent 26%
+    );
+
+  opacity: 0;
+
+  transition: opacity 420ms ease;
+
+  pointer-events: none;
+}
+
+.serviceCard:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.serviceCard:hover::before {
+  opacity: 1;
+}
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.serviceCardTop {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.serviceNumber {
+  color: var(--gold);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+.serviceArrow {
+  color: var(--gold);
+
+  font-size: 17px;
+  line-height: 1;
+
+  transition: transform 300ms ease;
+}
+
+.serviceCard:hover .serviceArrow {
+  transform: translate(4px, -4px);
+}
+
+/* =========================================================
+   CARD MAIN
+   ========================================================= */
+
+.serviceCardMain {
+  position: relative;
+  z-index: 2;
+
+  margin-top: auto;
+  margin-bottom: 42px;
+}
+
+.serviceCategory {
+  margin: 0 0 17px;
+
+  color: #788598;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  line-height: 1.3;
+
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+
+  transition: color 300ms ease;
+}
+
+.serviceCard:hover .serviceCategory {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.serviceTitle {
+  max-width: 560px;
+
+  margin: 0;
+
+  color: var(--navy);
+
+  font-size: clamp(39px, 4vw, 58px);
+  font-weight: 400;
+
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+
+  transition: color 350ms ease;
+}
+
+.serviceCard:hover .serviceTitle {
+  color: var(--white);
+}
+
+.titleRule {
+  width: 42px;
+  height: 1px;
+
+  margin: 25px 0 21px;
+
+  background: var(--gold);
+}
+
+.serviceDescription {
+  max-width: 500px;
+
+  margin: 0;
+
+  color: #58687c;
+
+  font-size: 12px;
+  line-height: 1.75;
+
+  transition: color 350ms ease;
+}
+
+.serviceCard:hover .serviceDescription {
+  color: rgba(255, 255, 255, 0.64);
+}
+
+/* =========================================================
+   SERVICE DETAIL
+   ========================================================= */
+
+.serviceDetail {
+  position: relative;
+  z-index: 2;
+
+  padding-top: 25px;
+
+  border-top: 1px solid var(--line);
+
+  transition: border-color 350ms ease;
+}
+
+.serviceCard:hover .serviceDetail {
+  border-color: var(--dark-line);
+}
+
+.detailLabel {
+  display: block;
+
+  margin-bottom: 11px;
+
+  color: var(--gold);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  line-height: 1.3;
+
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.detailTitle {
+  margin: 0 0 9px;
+
+  color: var(--navy);
+
+  font-size: 26px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  transition: color 350ms ease;
+}
+
+.serviceCard:hover .detailTitle {
+  color: var(--white);
+}
+
+.detailDescription {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: #68778b;
+
+  font-size: 11px;
+  line-height: 1.7;
+
+  transition: color 350ms ease;
+}
+
+.serviceCard:hover .detailDescription {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+/* =========================================================
+   WHAT WE HANDLE
+   ========================================================= */
+
+.handlesSection {
+  margin-top: 23px;
+  padding-top: 23px;
+
+  border-top: 1px solid var(--line);
+
+  transition: border-color 350ms ease;
+}
+
+.serviceCard:hover .handlesSection {
+  border-color: var(--dark-line);
+}
+
+.handlesGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+
+  transition: border-color 350ms ease;
+}
+
+.serviceCard:hover .handlesGrid {
+  border-color: var(--dark-line);
+}
+
+.handleItem {
+  min-height: 49px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 9px;
+
+  padding: 11px;
+
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  color: #536276;
+
+  font-size: 10px;
+  line-height: 1.5;
+
+  transition:
+    color 350ms ease,
+    border-color 350ms ease;
+}
+
+.serviceCard:hover .handleItem {
+  color: rgba(255, 255, 255, 0.64);
+
+  border-color: var(--dark-line);
+}
+
+.handlePlus {
+  flex: 0 0 auto;
+
+  color: var(--gold);
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   VALUE PANEL
+   ========================================================= */
+
+.valuePanel {
+  margin-top: 20px;
+  padding: 17px 19px;
+
+  background: rgba(7, 26, 47, 0.045);
+
+  border-left: 2px solid var(--gold);
+
+  transition: background 350ms ease;
+}
+
+.serviceCard:hover .valuePanel {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.valuePanel .detailLabel {
+  margin-bottom: 8px;
+}
+
+.valueText {
+  margin: 0;
+
+  color: #536276;
+
+  font-size: 11px;
+  line-height: 1.65;
+
+  transition: color 350ms ease;
+}
+
+.serviceCard:hover .valueText {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* =========================================================
+   SERVICE CTA
+   ========================================================= */
+
+.serviceLink {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin-top: 22px;
+
+  color: var(--navy);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: 0.05em;
+
+  text-decoration: none;
+
+  transition:
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.serviceCard:hover .serviceLink {
+  color: var(--white);
+}
+
+.serviceLink:hover {
+  color: var(--gold) !important;
+
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   GUIDANCE SECTION
+   ========================================================= */
+
+.guidanceSection {
+  padding: 145px 0;
+
+  background:
+    radial-gradient(
+      circle at 82% 30%,
+      rgba(220, 163, 0, 0.1),
+      transparent 26%
+    ),
+    var(--navy);
+
+  color: var(--white);
+}
+
+.guidanceGrid {
+  display: grid;
+
+  grid-template-columns:
+    230px
+    minmax(0, 1fr);
+
+  gap: 70px;
+}
+
+.guidanceLabel {
+  padding-top: 13px;
+}
+
+.guidanceContent {
+  max-width: 850px;
+}
+
+.guidanceTitle {
+  margin: 0 0 29px;
+
+  color: var(--white);
+
+  font-size: clamp(52px, 6vw, 82px);
+  font-weight: 400;
+
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+}
+
+.guidanceDescription {
+  max-width: 610px;
+
+  margin: 0 0 36px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+/* =========================================================
+   OSMIUM START
+   ========================================================= */
+
+.startSection {
+  padding: 140px 0;
+
+  background: var(--cream);
+}
+
+.startIntro {
+  max-width: 850px;
+
+  margin-bottom: 78px;
+}
+
+.startTitle {
+  margin: 32px 0 24px;
+
+  color: var(--navy);
+
+  font-size: clamp(53px, 6.2vw, 84px);
+  font-weight: 400;
+
+  line-height: 0.93;
+  letter-spacing: -0.05em;
+}
+
+.startDescription {
+  max-width: 580px;
+
+  margin: 0;
+
+  color: #647388;
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   PROCESS LIST
+   ========================================================= */
+
+.processList {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  border-top: 1px solid var(--line);
+}
+
+.processStep {
+  display: grid;
+
+  grid-template-columns: 90px minmax(0, 1fr);
+
+  padding: 34px 0;
+
+  border-bottom: 1px solid var(--line);
+
+  transition:
+    padding 280ms ease,
+    background 280ms ease;
+}
+
+.processStep:hover {
+  padding-left: 12px;
+}
+
+.processNumber {
+  color: var(--gold);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.processContent h3 {
+  margin: 0 0 11px;
+
+  color: var(--navy);
+
+  font-size: 27px;
+  font-weight: 400;
+
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.processContent p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #68778b;
+
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.finalCta {
+  padding: 150px 0;
+
+  background:
+    radial-gradient(
+      circle at 78% 40%,
+      rgba(220, 163, 0, 0.11),
+      transparent 25%
+    ),
+    var(--navy);
+
+  color: var(--white);
+}
+
+.finalCtaContent {
+  max-width: 930px;
+}
+
+.finalCtaTitle {
+  margin: 32px 0;
+
+  color: var(--white);
+
+  font-size: clamp(58px, 7vw, 102px);
+  font-weight: 400;
+
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.finalCtaDescription {
+  max-width: 600px;
+
+  margin: 0 0 38px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.finalCtaActions {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .container {
+    width: min(100% - 56px, 760px);
+  }
+
+  .servicesHero {
+    min-height: auto;
+
+    padding: 120px 0 100px;
+  }
+
+  .heroTitle {
+    font-size: clamp(64px, 10vw, 92px);
+  }
+
+  .heroMeta {
+    position: static;
+
+    margin-top: 70px;
+  }
+
+  .sectionIntroMain {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .sectionDescription {
+    max-width: 650px;
+  }
+
+  .serviceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceCard {
+    min-height: 650px;
+  }
+
+  .guidanceGrid {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .guidanceLabel {
+    padding-top: 0;
+  }
+
+  .guidanceSection,
+  .startSection,
+  .finalCta {
+    padding: 110px 0;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+
+  .servicesHero {
+    padding: 95px 0 75px;
+  }
+
+  .heroTitle {
+    font-size: clamp(52px, 15vw, 75px);
+
+    line-height: 0.9;
+  }
+
+  .heroDescription {
+    margin-top: 29px;
+
+    font-size: 13px;
+
+    line-height: 1.75;
+  }
+
+  .heroActions {
+    align-items: stretch;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .primaryButton {
+    width: 100%;
+  }
+
+  .textButton {
+    width: fit-content;
+  }
+
+  .heroMeta {
+    gap: 12px;
+
+    font-size: 8px;
+
+    flex-wrap: wrap;
+  }
+
+  .heroMeta span + span::before {
+    margin-right: 12px;
+  }
+
+  .serviceSection {
+    padding-top: 85px;
+  }
+
+  .sectionIntro {
+    padding-bottom: 52px;
+  }
+
+  .sectionIntroTop {
+    align-items: flex-start;
+  }
+
+  .sectionIntroMain {
+    padding-top: 48px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(45px, 13vw, 66px);
+  }
+
+  .serviceCard {
+    min-height: auto;
+
+    padding: 24px;
+  }
+
+  .serviceCardMain {
+    margin-top: 115px;
+  }
+
+  .serviceTitle {
+    font-size: 42px;
+  }
+
+  .handlesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .guidanceSection,
+  .startSection,
+  .finalCta {
+    padding: 90px 0;
+  }
+
+  .guidanceTitle,
+  .startTitle {
+    font-size: clamp(45px, 13vw, 67px);
+  }
+
+  .processStep {
+    grid-template-columns: 52px minmax(0, 1fr);
+
+    padding: 28px 0;
+  }
+
+  .processContent h3 {
+    font-size: 22px;
+  }
+
+  .finalCtaTitle {
+    font-size: clamp(50px, 14vw, 74px);
+  }
+
+  .finalCtaActions {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .finalCtaActions > * {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY — REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton,
+  .secondaryButton,
+  .textButton,
+  .serviceCard,
+  .serviceCard::before,
+  .serviceArrow,
+  .serviceLink,
+  .processStep {
+    transition: none;
+  }
+}

@@ -1,0 +1,1403 @@
+/* =========================================================
+   OSMIUM BPO — PREMIUM NAVBAR
+========================================================= */
+
+.navbar {
+  position: relative;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: #071426;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   NAV INNER
+========================================================= */
+
+.navInner {
+  position: relative;
+  z-index: 1002;
+
+  width: min(
+    1240px,
+    calc(100% - 64px)
+  );
+
+  min-height: 82px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 42px;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  gap: 12px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  position: relative;
+  z-index: 1003;
+}
+
+
+/* =========================================================
+   BRAND SYMBOL
+========================================================= */
+
+.brandSymbol {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border:
+    1.5px solid #f5b51b;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(245, 181, 27, 0.08),
+      transparent 65%
+    );
+
+  overflow: hidden;
+}
+
+
+.brandSymbol::before {
+  content: "";
+
+  position: absolute;
+
+  width: 22px;
+  height: 22px;
+
+  border:
+    1px solid rgba(
+      245,
+      181,
+      27,
+      0.75
+    );
+
+  border-radius: 50%;
+}
+
+
+.brandSymbol::after {
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  top: 6px;
+  right: 6px;
+
+  background: #f5b51b;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 8px
+    rgba(245, 181, 27, 0.45);
+}
+
+
+.brandSymbol span {
+  position: relative;
+  z-index: 2;
+
+  width: 7px;
+  height: 7px;
+
+  background: #ffffff;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 8px
+    rgba(255, 255, 255, 0.25);
+}
+/* =========================================================
+   BRAND LOGO IMAGE
+========================================================= */
+
+.brandLogo {
+  width: 175px;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   BRAND COPY
+========================================================= */
+
+.brandCopy {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 4px;
+}
+
+
+.brandCopy strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 18px;
+  line-height: 0.95;
+
+  font-weight: 800;
+
+  letter-spacing: -0.035em;
+}
+
+
+.brandCopy strong em {
+  color: #f5b51b;
+
+  font-style: normal;
+}
+
+
+.brandCopy small {
+  display: block;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 6px;
+  line-height: 1.2;
+
+  font-weight: 600;
+
+  letter-spacing: 0.095em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.navLinks {
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+
+  margin-left: auto;
+}
+
+
+.navLinks > a,
+.servicesTrigger {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 82px;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.01em;
+
+  text-decoration: none;
+
+  background: transparent;
+
+  border: 0;
+
+  cursor: pointer;
+
+  transition:
+    color 180ms ease;
+}
+
+
+.navLinks > a:hover,
+.servicesTrigger:hover,
+.servicesMenuOpen
+  .servicesTrigger {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   NAV ACTIVE INDICATOR
+========================================================= */
+
+.navLinks > a::after,
+.servicesTrigger::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: 17px;
+
+  height: 2px;
+
+  background: #f5b51b;
+
+  transform:
+    scaleX(0);
+
+  transform-origin: center;
+
+  transition:
+    transform 200ms ease;
+}
+
+
+.navLinks > a:hover::after,
+.navLinks > a.active::after,
+.servicesMenu:hover
+  .servicesTrigger::after,
+.servicesMenuOpen
+  .servicesTrigger::after {
+  transform:
+    scaleX(1);
+}
+
+
+.navLinks > a.active {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SERVICES MENU
+========================================================= */
+
+.servicesMenu {
+  position: relative;
+
+  height: 82px;
+
+  display: flex;
+  align-items: center;
+}
+
+
+.servicesTrigger {
+  padding: 0;
+}
+
+
+/* =========================================================
+   SERVICES CHEVRON
+========================================================= */
+
+.navChevron {
+  display: inline-block;
+
+  margin-left: 5px;
+
+  color: #f5b51b;
+
+  font-size: 11px;
+
+  line-height: 1;
+
+  transform:
+    translateY(-1px);
+
+  transition:
+    transform 220ms ease;
+}
+
+
+.servicesMenu:hover
+  .navChevron,
+.servicesMenuOpen
+  .navChevron {
+  transform:
+    translateY(-1px)
+    rotate(180deg);
+}
+
+
+/* =========================================================
+   SERVICES DROPDOWN
+========================================================= */
+
+.servicesDropdown {
+  position: absolute;
+
+  top: calc(100% - 1px);
+
+  left: 50%;
+
+  width: 390px;
+
+  padding: 9px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0a1b30 0%,
+      #071426 65%,
+      #06101d 100%
+    );
+
+  border:
+    1px solid
+    rgba(245, 181, 27, 0.22);
+
+  box-shadow:
+    0 24px 60px
+    rgba(0, 0, 0, 0.38);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -8px)
+    scale(0.98);
+
+  transform-origin:
+    top center;
+
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease,
+    visibility 220ms ease;
+}
+
+
+/* little gold top edge */
+
+.servicesDropdown::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  left: 20px;
+
+  width: 46px;
+  height: 2px;
+
+  background: #f5b51b;
+}
+
+
+/* dropdown bridge */
+
+.servicesDropdown::after {
+  content: "";
+
+  position: absolute;
+
+  top: -7px;
+  left: 50%;
+
+  width: 12px;
+  height: 12px;
+
+  background: #0a1b30;
+
+  border-left:
+    1px solid
+    rgba(245, 181, 27, 0.22);
+
+  border-top:
+    1px solid
+    rgba(245, 181, 27, 0.22);
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+}
+
+
+/* OPEN STATES */
+
+.servicesMenu:hover
+  .servicesDropdown,
+.servicesMenu:focus-within
+  .servicesDropdown,
+.servicesMenuOpen
+  .servicesDropdown {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform:
+    translate(-50%, 0)
+    scale(1);
+}
+
+
+/* =========================================================
+   SERVICE OPTION
+========================================================= */
+
+.serviceOption {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    30px
+    1fr
+    24px;
+
+  gap: 13px;
+
+  align-items: start;
+
+  padding: 18px 14px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  border:
+    1px solid
+    transparent;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+
+.serviceOption:hover {
+  background:
+    rgba(245, 181, 27, 0.055);
+
+  border-color:
+    rgba(245, 181, 27, 0.16);
+
+  transform:
+    translateX(3px);
+}
+
+
+/* =========================================================
+   OPTION NUMBER
+========================================================= */
+
+.serviceOptionNumber {
+  color: #f5b51b;
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  padding-top: 3px;
+}
+
+
+/* =========================================================
+   OPTION CONTENT
+========================================================= */
+
+.serviceOptionContent {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+
+.serviceOptionContent strong {
+  color: #ffffff;
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.01em;
+}
+
+
+.serviceOptionContent small {
+  max-width: 250px;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   OPTION ARROW
+========================================================= */
+
+.serviceOptionArrow {
+  color: #f5b51b;
+
+  font-size: 16px;
+
+  line-height: 1;
+
+  transition:
+    transform 180ms ease;
+}
+
+
+.serviceOption:hover
+  .serviceOptionArrow {
+  transform:
+    translate(3px, -3px);
+}
+
+
+/* =========================================================
+   DROPDOWN FOOTER
+========================================================= */
+
+.servicesDropdownFooter {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-top: 4px;
+
+  padding:
+    12px
+    14px
+    7px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  color:
+    rgba(255, 255, 255, 0.3);
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   NAVIGATION CTA
+========================================================= */
+
+.navCta {
+  min-height: 46px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  flex-shrink: 0;
+
+  padding: 0 20px;
+
+  background: #f5b51b;
+
+  color: #071426;
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  text-decoration: none;
+
+  border:
+    1px solid #f5b51b;
+
+  border-radius: 2px;
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+.navCta strong {
+  font-size: 15px;
+
+  line-height: 1;
+
+  font-weight: 500;
+
+  transition:
+    transform 180ms ease;
+}
+
+
+.navCta:hover {
+  background: #ffc83d;
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 10px 26px
+    rgba(245, 181, 27, 0.17);
+}
+
+
+.navCta:hover strong {
+  transform:
+    translate(3px, -2px);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.mobileMenu {
+  display: none;
+
+  position: relative;
+  z-index: 1004;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  background: transparent;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.16);
+
+  border-radius: 3px;
+
+  cursor: pointer;
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+
+.mobileMenu:hover {
+  border-color:
+    rgba(245, 181, 27, 0.55);
+
+  background:
+    rgba(245, 181, 27, 0.05);
+}
+
+
+.mobileMenu span {
+  display: block;
+
+  width: 18px;
+  height: 1px;
+
+  background: #ffffff;
+
+  transform-origin: center;
+
+  transition:
+    transform 220ms ease,
+    opacity 180ms ease,
+    background 180ms ease;
+}
+
+
+.mobileMenuOpen {
+  border-color:
+    rgba(245, 181, 27, 0.65);
+
+  background:
+    rgba(245, 181, 27, 0.06);
+}
+
+
+.mobileMenuOpen span {
+  background: #f5b51b;
+}
+
+
+.mobileMenuOpen span:nth-child(1) {
+  transform:
+    translateY(6px)
+    rotate(45deg);
+}
+
+
+.mobileMenuOpen span:nth-child(2) {
+  opacity: 0;
+
+  transform:
+    scaleX(0);
+}
+
+
+.mobileMenuOpen span:nth-child(3) {
+  transform:
+    translateY(-6px)
+    rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+
+.mobileNav {
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1001;
+
+  background:
+    linear-gradient(
+      135deg,
+      #071426 0%,
+      #091a2e 55%,
+      #06101f 100%
+    );
+
+  border-bottom:
+    1px solid
+    rgba(245, 181, 27, 0.25);
+
+  box-shadow:
+    0 22px 55px
+    rgba(0, 0, 0, 0.32);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(-12px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 220ms ease,
+    transform 260ms ease,
+    visibility 260ms ease;
+}
+
+
+.mobileNav::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(245, 181, 27, 0.65),
+      transparent
+    );
+}
+
+
+.mobileNavOpen {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateY(0);
+
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   MOBILE NAV INNER
+========================================================= */
+
+.mobileNavInner {
+  width:
+    min(
+      calc(100% - 36px),
+      520px
+    );
+
+  margin: 0 auto;
+
+  padding:
+    18px 0 24px;
+}
+
+
+/* =========================================================
+   MOBILE NAV LINK
+========================================================= */
+
+.mobileNavLink {
+  position: relative;
+
+  min-height: 58px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 4px;
+
+  color: #ffffff !important;
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.025em;
+
+  text-decoration: none;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  transition:
+    padding 180ms ease,
+    background 180ms ease;
+}
+
+
+.mobileNavLink span {
+  color: #ffffff !important;
+}
+
+
+.mobileNavLink strong {
+  color: #f5b51b !important;
+
+  font-size: 16px;
+
+  font-weight: 400;
+
+  transition:
+    transform 180ms ease;
+}
+
+
+.mobileNavLink:hover {
+  padding-left: 9px;
+
+  background:
+    rgba(245, 181, 27, 0.035);
+}
+
+
+.mobileNavLink:hover strong {
+  transform:
+    translate(3px, -2px);
+}
+
+
+/* =========================================================
+   MOBILE SERVICES
+========================================================= */
+
+.mobileServices {
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+
+.mobileServicesTrigger {
+  width: 100%;
+
+  min-height: 58px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 4px;
+
+  color: #ffffff;
+
+  background: transparent;
+
+  border: 0;
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.025em;
+
+  cursor: pointer;
+}
+
+
+.mobileServicesTrigger strong {
+  color: #f5b51b;
+
+  font-size: 15px;
+
+  font-weight: 400;
+
+  transition:
+    transform 220ms ease;
+}
+
+
+.mobileServicesOpen
+  .mobileServicesTrigger strong {
+  transform:
+    rotate(180deg);
+}
+
+
+/* =========================================================
+   MOBILE SERVICES OPTIONS
+========================================================= */
+
+.mobileServicesOptions {
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  overflow: hidden;
+
+  transition:
+    grid-template-rows 240ms ease;
+}
+
+
+.mobileServicesOpen
+  .mobileServicesOptions {
+  grid-template-rows: 1fr;
+}
+
+
+.mobileServicesOptions::before {
+  content: "";
+}
+
+
+.mobileServiceOption {
+  min-height: 52px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    0 8px
+    0 18px;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.65
+  );
+
+  text-decoration: none;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.055);
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 13px;
+
+  transition:
+    color 180ms ease,
+    padding 180ms ease;
+}
+
+
+.mobileServiceOption span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.mobileServiceOption small {
+  color: #f5b51b;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+
+.mobileServiceOption strong {
+  color: #f5b51b;
+
+  font-size: 15px;
+
+  font-weight: 400;
+}
+
+
+.mobileServiceOption:hover {
+  color: #ffffff;
+
+  padding-left: 23px;
+}
+
+
+/* =========================================================
+   MOBILE CTA
+========================================================= */
+
+.mobileNavCta {
+  min-height: 52px;
+
+  margin-top: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 17px;
+
+  background: #f5b51b;
+
+  color: #071426;
+
+  font-family:
+    var(--font-geist-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  text-decoration: none;
+
+  border:
+    1px solid #f5b51b;
+
+  border-radius: 2px;
+}
+
+
+.mobileNavCta strong {
+  font-size: 16px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .navInner {
+    width:
+      min(
+        calc(100% - 48px),
+        1240px
+      );
+
+    gap: 24px;
+  }
+
+  .navLinks {
+    gap: 21px;
+  }
+
+  .navLinks > a,
+  .servicesTrigger {
+    font-size: 11px;
+  }
+
+  .navCta {
+    padding-inline: 15px;
+
+    font-size: 10px;
+  }
+
+  .servicesDropdown {
+    width: 360px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 820px) {
+    .brandLogo {
+    width: 150px;
+  }
+
+  .navInner {
+    min-height: 74px;
+
+    width:
+      calc(100% - 36px);
+  }
+
+  .navLinks,
+  .navCta {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
+
+  .brandSymbol {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brandCopy strong {
+    font-size: 16px;
+  }
+
+  .brandCopy small {
+    font-size: 5px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .brandLogo {
+    width: 130px;
+  }
+
+  .navInner {
+    width:
+      calc(100% - 28px);
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brandSymbol {
+    width: 35px;
+    height: 35px;
+  }
+
+  .brandCopy strong {
+    font-size: 15px;
+  }
+
+  .brandCopy small {
+    display: none;
+  }
+
+  .mobileNavInner {
+    width:
+      calc(100% - 28px);
+  }
+
+  .mobileNavLink,
+  .mobileServicesTrigger {
+    font-size: 16px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.navLinks > a:focus-visible,
+.servicesTrigger:focus-visible,
+.navCta:focus-visible,
+.mobileMenu:focus-visible,
+.mobileNavLink:focus-visible,
+.mobileServicesTrigger:focus-visible,
+.mobileServiceOption:focus-visible,
+.mobileNavCta:focus-visible,
+.serviceOption:focus-visible {
+  outline:
+    2px solid #f5b51b;
+
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .navbar,
+  .navLinks > a,
+  .navLinks > a::after,
+  .servicesTrigger,
+  .servicesTrigger::after,
+  .navChevron,
+  .servicesDropdown,
+  .serviceOption,
+  .serviceOptionArrow,
+  .navCta,
+  .navCta strong,
+  .mobileMenu,
+  .mobileMenu span,
+  .mobileNav,
+  .mobileNavLink,
+  .mobileServicesTrigger strong,
+  .mobileServicesOptions,
+  .mobileServiceOption {
+    transition: none;
+  }
+}

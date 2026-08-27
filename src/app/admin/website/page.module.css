@@ -1,0 +1,321 @@
+.page {
+  min-height: 100vh;
+  padding: 48px 40px 80px;
+  background: #f5f6f8;
+  color: #071b2d;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  max-width: 1280px;
+  margin: 0 auto 54px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: #e5a900;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.header h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.intro {
+  max-width: 620px;
+  margin: 20px 0 0;
+  color: #5b7190;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.backLink {
+  flex-shrink: 0;
+  color: #071b2d;
+  border-bottom: 1px solid #9eacbc;
+  padding-bottom: 7px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.backLink:hover {
+  color: #d99f00;
+  border-color: #d99f00;
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.content {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sectionHeading {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.phaseBadge {
+  padding: 9px 14px;
+  border: 1px solid #d5dde6;
+  background: #fff;
+  color: #536a86;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  min-height: 300px;
+  padding: 30px;
+  border: 1px solid #d9e0e7;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  right: -55px;
+  bottom: -55px;
+  border-radius: 50%;
+  background: #fff7df;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #e5a900;
+  box-shadow: 0 18px 45px rgba(7, 27, 45, 0.08);
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff7df;
+  color: #dca000;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.cardBody {
+  position: relative;
+  z-index: 1;
+  margin-top: 40px;
+}
+
+.cardLabel {
+  display: block;
+  margin-bottom: 10px;
+  color: #d99f00;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.card h3 {
+  margin: 0;
+  color: #071b2d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.card p {
+  max-width: 340px;
+  margin: 13px 0 0;
+  color: #607691;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.arrow {
+  position: relative;
+  z-index: 2;
+  align-self: flex-end;
+  color: #071b2d;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* =========================================
+   COMING SOON
+========================================= */
+
+.comingSoon {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.comingSoon:hover {
+  transform: none;
+  border-color: #d9e0e7;
+  box-shadow: none;
+}
+
+.status {
+  position: relative;
+  z-index: 2;
+  align-self: flex-end;
+  padding: 7px 11px;
+  border: 1px solid #dce3ea;
+  color: #71839a;
+  background: #f7f8fa;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   NOTE
+========================================= */
+
+.note {
+  max-width: 1280px;
+  margin: 28px auto 0;
+  padding: 22px 24px;
+  border: 1px solid #dce2e8;
+  background: #eef1f4;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.noteMark {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #fff7df;
+  color: #dca000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.note strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #071b2d;
+  font-size: 14px;
+}
+
+.note p {
+  margin: 0;
+  color: #607691;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .page {
+    padding: 35px 24px 60px;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  .sectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page {
+    padding: 28px 18px 50px;
+  }
+
+  .header h1 {
+    font-size: 42px;
+  }
+
+  .intro {
+    font-size: 15px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .card h3 {
+    font-size: 27px;
+  }
+}

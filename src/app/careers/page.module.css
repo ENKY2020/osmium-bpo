@@ -1,0 +1,1087 @@
+/* =========================================================
+   CAREERS — OSMIUM BPO
+   Editorial / People / Opportunity
+========================================================= */
+
+.page {
+  --navy: #071a2d;
+  --navy-deep: #041321;
+  --navy-soft: #0d2339;
+  --gold: #e8aa00;
+  --gold-bright: #f5b817;
+  --cream: #f5f3ed;
+  --paper: #faf9f5;
+  --ink: #071a2d;
+  --muted: #536b82;
+  --line: rgba(7, 26, 45, 0.16);
+  --line-light: rgba(255, 255, 255, 0.14);
+
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* =========================================================
+   SHARED TYPOGRAPHY
+========================================================= */
+
+.page h1,
+.page h2,
+.page h3 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.page p {
+  margin: 0;
+}
+
+.page a {
+  text-decoration: none;
+}
+
+.page em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* =========================================================
+   SHARED EYEBROWS
+========================================================= */
+
+.sectionEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  color: var(--gold);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.eyebrowLine {
+  display: block;
+  width: 30px;
+  height: 1px;
+  flex: 0 0 auto;
+  background: var(--gold);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.sectionIndex {
+  color: #718196;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.55fr);
+
+  background:
+    radial-gradient(
+      circle at 80% 35%,
+      rgba(29, 59, 82, 0.5),
+      transparent 32%
+    ),
+    var(--navy);
+
+  color: #fff;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 980px;
+  padding: 130px 7vw 100px;
+}
+
+.heroMeta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 32px;
+
+  color: var(--gold);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.metaLine {
+  width: 34px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.heroKicker {
+  margin-bottom: 22px !important;
+
+  color: #aab8c7;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  max-width: 950px;
+  margin: 0;
+
+  color: #fff;
+  font-size: clamp(72px, 8.3vw, 142px);
+  line-height: 0.88;
+}
+
+.heroTitle em {
+  display: block;
+  margin-left: 0.04em;
+  color: var(--gold-bright);
+}
+
+.heroBottom {
+  display: grid;
+  grid-template-columns: minmax(280px, 560px) auto;
+  align-items: end;
+  gap: 60px;
+
+  margin-top: 70px;
+  padding-top: 28px;
+
+  border-top: 1px solid var(--line-light);
+}
+
+.heroBottom p {
+  max-width: 590px;
+
+  color: #b7c4d1;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.heroLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.heroLink span {
+  color: var(--gold);
+  font-size: 18px;
+  transition: transform 180ms ease;
+}
+
+.heroLink:hover span {
+  transform: translate(4px, 4px);
+}
+
+/* =========================================================
+   HERO MARK
+========================================================= */
+
+.heroMark {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.heroOrbit {
+  position: relative;
+
+  width: min(36vw, 470px);
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(232, 170, 0, 0.42);
+  border-radius: 50%;
+}
+
+.heroOrbit::before,
+.heroOrbit::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heroOrbit::before {
+  inset: 15%;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.heroOrbit::after {
+  inset: 31%;
+  border: 1px solid rgba(232, 170, 0, 0.28);
+}
+
+.heroCore {
+  position: absolute;
+  inset: 40%;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: rgba(7, 26, 45, 0.92);
+
+  box-shadow: 0 0 50px rgba(232, 170, 0, 0.08);
+}
+
+.heroCore span {
+  color: var(--gold);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(30px, 3vw, 52px);
+}
+
+.heroMarkLabel {
+  position: absolute;
+  bottom: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: max-content;
+
+  color: #8da0b3;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.introSection {
+  padding: 115px 7vw 130px;
+  background: var(--paper);
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+  gap: 10vw;
+
+  padding-top: 85px;
+}
+
+.introGrid h2 {
+  max-width: 700px;
+  margin: 0;
+
+  font-size: clamp(58px, 6vw, 96px);
+  line-height: 0.93;
+}
+
+.introContent {
+  padding-top: 8px;
+}
+
+.introContent p {
+  max-width: 610px;
+
+  margin-bottom: 25px;
+
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.introContent .lead {
+  color: var(--ink);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.35;
+}
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.valuesSection {
+  padding: 100px 7vw 130px;
+  background: var(--cream);
+}
+
+.valuesIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.55fr);
+  gap: 8vw;
+
+  padding: 75px 0 65px;
+}
+
+.valuesIntro h2 {
+  margin: 0;
+
+  font-size: clamp(58px, 6vw, 94px);
+  line-height: 0.91;
+}
+
+.valuesIntro p {
+  align-self: end;
+
+  max-width: 530px;
+
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.valueCard {
+  position: relative;
+  min-height: 340px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 28px;
+
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  transition:
+    background 220ms ease,
+    color 220ms ease;
+}
+
+.valueCard:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+.cardNumber {
+  color: var(--gold);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.valueCardBody {
+  max-width: 500px;
+}
+
+.valueCardBody h3 {
+  margin: 0;
+
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1;
+}
+
+.cardRule {
+  display: block;
+
+  width: 40px;
+  height: 1px;
+
+  margin: 20px 0;
+
+  background: var(--gold);
+}
+
+.valueCardBody p {
+  max-width: 450px;
+
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.valueCard:hover .valueCardBody p {
+  color: #b7c4d1;
+}
+
+.cardArrow {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+
+  color: var(--gold);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+
+  transition: transform 180ms ease;
+}
+
+.valueCard:hover .cardArrow {
+  transform: translate(4px, -4px);
+}
+
+/* =========================================================
+   ROLES
+========================================================= */
+
+.rolesSection {
+  padding: 110px 7vw 130px;
+  background: var(--paper);
+}
+
+.rolesIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.55fr);
+  gap: 8vw;
+
+  padding: 75px 0 65px;
+}
+
+.rolesIntro h2 {
+  margin: 0;
+
+  font-size: clamp(58px, 6vw, 94px);
+  line-height: 0.91;
+}
+
+.rolesIntro > p {
+  align-self: end;
+
+  max-width: 520px;
+
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.rolesList {
+  display: flex;
+  flex-direction: column;
+
+  border-top: 1px solid var(--line);
+}
+
+.roleCard {
+  padding: 32px 0;
+
+  border-bottom: 1px solid var(--line);
+
+  transition: padding 220ms ease;
+}
+
+.roleCard:hover {
+  padding-left: 18px;
+  padding-right: 18px;
+
+  background: rgba(7, 26, 45, 0.025);
+}
+
+.roleTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 32px;
+}
+
+.roleNumber {
+  color: var(--gold);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.roleMeta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.roleMeta span {
+  padding: 7px 10px;
+
+  border: 1px solid var(--line);
+
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.roleMain {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.8fr) minmax(300px, 0.75fr);
+  gap: 8vw;
+}
+
+.roleTitleBlock h3 {
+  margin: 0;
+
+  font-size: clamp(36px, 4vw, 58px);
+  line-height: 0.98;
+}
+
+.roleTitleBlock .cardRule {
+  margin-top: 24px;
+}
+
+.roleMain > p {
+  align-self: center;
+
+  max-width: 570px;
+
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.roleBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-top: 38px;
+  padding-top: 25px;
+
+  border-top: 1px solid var(--line);
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skills span {
+  color: #718196;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+.skills span:not(:last-child)::after {
+  content: " •";
+  margin-left: 8px;
+  color: var(--gold);
+}
+
+.roleLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.roleLink span {
+  color: var(--gold);
+  font-size: 16px;
+
+  transition: transform 180ms ease;
+}
+
+.roleLink:hover span {
+  transform: translate(4px, -4px);
+}
+
+/* =========================================================
+   OPEN APPLICATION
+========================================================= */
+
+.openApplicationSection {
+  padding: 100px 7vw;
+  background: var(--navy);
+  color: #fff;
+}
+
+.openApplicationInner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.openApplicationGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.65fr);
+  gap: 9vw;
+
+  padding-top: 75px;
+}
+
+.openApplicationGrid h2 {
+  margin: 0;
+
+  font-size: clamp(58px, 6vw, 96px);
+  line-height: 0.92;
+}
+
+.openApplicationGrid > div {
+  align-self: end;
+}
+
+.openApplicationGrid p {
+  max-width: 550px;
+
+  margin-bottom: 35px;
+
+  color: #b8c5d2;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.applicationButton,
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  min-width: 215px;
+
+  padding: 17px 22px;
+
+  background: var(--gold);
+  color: var(--navy);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.applicationButton:hover,
+.primaryButton:hover {
+  background: #f4ba1c;
+  transform: translateY(-2px);
+}
+
+.applicationButton span,
+.primaryButton span {
+  font-size: 16px;
+}
+
+/* =========================================================
+   CLOSING
+========================================================= */
+
+.closingSection {
+  padding: 125px 7vw 140px;
+  background: var(--cream);
+}
+
+.closingInner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.closingInner h2 {
+  max-width: 1050px;
+  margin: 65px 0 35px;
+
+  font-size: clamp(64px, 7.5vw, 118px);
+  line-height: 0.88;
+}
+
+.closingInner > p {
+  max-width: 600px;
+
+  margin-bottom: 42px;
+
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.closingActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.secondaryLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.secondaryLink span {
+  color: var(--gold);
+  font-size: 17px;
+
+  transition: transform 180ms ease;
+}
+
+.secondaryLink:hover span {
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   LARGE SCREENS
+========================================================= */
+
+@media (min-width: 1600px) {
+  .heroInner {
+    padding-left: max(7vw, calc((100vw - 1450px) / 2));
+  }
+
+  .introSection,
+  .valuesSection,
+  .rolesSection,
+  .openApplicationSection,
+  .closingSection {
+    padding-left: max(7vw, calc((100vw - 1450px) / 2));
+    padding-right: max(7vw, calc((100vw - 1450px) / 2));
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .heroInner {
+    padding: 115px 7vw 80px;
+  }
+
+  .heroMark {
+    position: absolute;
+    right: -100px;
+    bottom: -150px;
+
+    width: 520px;
+    height: 520px;
+    min-height: 0;
+
+    opacity: 0.45;
+  }
+
+  .heroOrbit {
+    width: 100%;
+  }
+
+  .heroBottom {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .introGrid,
+  .valuesIntro,
+  .rolesIntro,
+  .openApplicationGrid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .introContent,
+  .valuesIntro p,
+  .rolesIntro > p,
+  .openApplicationGrid > div {
+    padding-top: 0;
+  }
+
+  .roleMain {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .heroInner {
+    padding: 95px 24px 70px;
+  }
+
+  .hero {
+    min-height: 680px;
+  }
+
+  .heroMeta {
+    margin-bottom: 25px;
+  }
+
+  .heroTitle {
+    font-size: clamp(58px, 16vw, 88px);
+    line-height: 0.9;
+  }
+
+  .heroBottom {
+    margin-top: 50px;
+  }
+
+  .heroBottom p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .heroMark {
+    right: -170px;
+    bottom: -110px;
+
+    width: 430px;
+    height: 430px;
+  }
+
+  .introSection,
+  .valuesSection,
+  .rolesSection,
+  .openApplicationSection,
+  .closingSection {
+    padding: 75px 24px 85px;
+  }
+
+  .sectionHeader {
+    padding-bottom: 16px;
+  }
+
+  .sectionEyebrow {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
+
+  .sectionIndex {
+    font-size: 8px;
+  }
+
+  .introGrid,
+  .valuesIntro,
+  .rolesIntro,
+  .openApplicationGrid {
+    padding-top: 55px;
+  }
+
+  .introGrid h2,
+  .valuesIntro h2,
+  .rolesIntro h2,
+  .openApplicationGrid h2 {
+    font-size: clamp(48px, 14vw, 70px);
+    line-height: 0.92;
+  }
+
+  .introContent .lead {
+    font-size: 22px;
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .valueCard {
+    min-height: 300px;
+    padding: 24px;
+  }
+
+  .cardArrow {
+    top: 24px;
+    right: 24px;
+  }
+
+  .rolesIntro {
+    padding-bottom: 45px;
+  }
+
+  .roleCard {
+    padding: 27px 0;
+  }
+
+  .roleCard:hover {
+    padding-left: 0;
+    padding-right: 0;
+    background: transparent;
+  }
+
+  .roleTop {
+    display: block;
+    margin-bottom: 25px;
+  }
+
+  .roleMeta {
+    justify-content: flex-start;
+    margin-top: 18px;
+  }
+
+  .roleMain {
+    gap: 24px;
+  }
+
+  .roleTitleBlock h3 {
+    font-size: 38px;
+  }
+
+  .roleBottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .skills {
+    display: block;
+    line-height: 2;
+  }
+
+  .skills span {
+    margin-right: 8px;
+  }
+
+  .applicationButton,
+  .primaryButton {
+    width: 100%;
+  }
+
+  .closingInner h2 {
+    margin-top: 50px;
+    font-size: clamp(52px, 14vw, 76px);
+  }
+
+  .closingActions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 22px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+  .hero {
+    min-height: 640px;
+  }
+
+  .heroTitle {
+    font-size: 56px;
+  }
+
+  .heroKicker {
+    font-size: 9px;
+    letter-spacing: 0.17em;
+  }
+
+  .heroMark {
+    right: -190px;
+    bottom: -100px;
+
+    width: 390px;
+    height: 390px;
+  }
+
+  .heroMarkLabel {
+    font-size: 7px;
+  }
+
+  .introGrid h2,
+  .valuesIntro h2,
+  .rolesIntro h2,
+  .openApplicationGrid h2,
+  .closingInner h2 {
+    font-size: 48px;
+  }
+
+  .roleMeta span {
+    font-size: 8px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .valueCard,
+  .roleCard,
+  .heroLink span,
+  .cardArrow,
+  .roleLink span,
+  .secondaryLink span,
+  .applicationButton,
+  .primaryButton {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .sectionHeader,
+  .roleCard,
+  .valuesGrid,
+  .valueCard,
+  .roleBottom {
+    border-color: rgba(7, 26, 45, 0.35);
+  }
+
+  .heroBottom {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}

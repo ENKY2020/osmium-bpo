@@ -1,0 +1,510 @@
+/* =========================================================
+   OSMIUM BPO — PUBLIC JOB DETAIL
+   Phase 1 Careers
+   ========================================================= */
+
+.careersPage {
+  min-height: 100vh;
+  background: #f8f7f3;
+  color: #071b2f;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: #071b2f;
+  color: #ffffff;
+  padding: 110px 7vw 95px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -140px;
+  top: -180px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+
+  max-width: 1240px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 70px;
+  align-items: end;
+}
+
+.eyebrow,
+.sectionEyebrow {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: #e2a900;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  max-width: 950px;
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(52px, 7vw, 108px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.heroText {
+  max-width: 680px;
+  margin: 32px 0 0;
+
+  color: rgba(255, 255, 255, 0.74);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.backLink {
+  justify-self: end;
+  align-self: end;
+
+  display: inline-flex;
+  align-items: center;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 8px;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.backLink:hover {
+  color: #e2a900;
+  border-color: #e2a900;
+  transform: translateX(-4px);
+}
+
+/* =========================================================
+   JOB DETAIL
+   ========================================================= */
+
+.jobDetail {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 70px 7vw 110px;
+}
+
+.jobMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-bottom: 58px;
+
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid #d7dce1;
+}
+
+.jobMeta span {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 36px;
+  padding: 0 15px;
+
+  border: 1px solid #cfd5da;
+  background: #ffffff;
+
+  color: #27435e;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   MAIN GRID
+   ========================================================= */
+
+.jobGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 90px;
+  align-items: start;
+}
+
+.jobContent {
+  min-width: 0;
+}
+
+.jobContent section {
+  padding-bottom: 58px;
+  margin-bottom: 58px;
+
+  border-bottom: 1px solid #d7dce1;
+}
+
+.jobContent section:last-child {
+  margin-bottom: 0;
+}
+
+.jobContent h2,
+.applyCard h2 {
+  margin: 0 0 22px;
+
+  color: #071b2f;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.sectionEyebrow {
+  margin-bottom: 14px;
+}
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.richText {
+  max-width: 780px;
+}
+
+.richText p {
+  margin: 0 0 18px;
+
+  color: #4c6680;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.richText p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   REQUIREMENTS
+   ========================================================= */
+
+.requirementsList {
+  max-width: 780px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.requirementsList li {
+  position: relative;
+
+  padding: 17px 0 17px 30px;
+
+  border-bottom: 1px solid #e1e4e7;
+
+  color: #27435e;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.requirementsList li:first-child {
+  border-top: 1px solid #e1e4e7;
+}
+
+.requirementsList li::before {
+  content: "";
+
+  position: absolute;
+  left: 3px;
+  top: 27px;
+
+  width: 7px;
+  height: 7px;
+
+  background: #e2a900;
+  border-radius: 50%;
+}
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 10px 15px;
+
+  background: #ffffff;
+  border: 1px solid #d2d9df;
+
+  color: #17344f;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.skill:hover {
+  background: #fff8e4;
+  border-color: #e2a900;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.jobSidebar {
+  position: relative;
+}
+
+.applyCard {
+  position: sticky;
+  top: 30px;
+
+  padding: 38px;
+
+  background: #ffffff;
+  border: 1px solid #d7dfe5;
+
+  box-shadow: 0 18px 45px rgba(7, 27, 47, 0.07);
+}
+
+.applyCard::before {
+  content: "";
+
+  display: block;
+
+  width: 48px;
+  height: 4px;
+
+  margin-bottom: 28px;
+
+  background: #e2a900;
+}
+
+.applyCard h2 {
+  font-size: 38px;
+  margin-bottom: 18px;
+}
+
+.applyCard > p {
+  margin: 0 0 28px;
+
+  color: #58708a;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.applyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 56px;
+
+  padding: 0 20px;
+
+  background: #e2a900;
+  border: 1px solid #e2a900;
+
+  color: #071b2f;
+  text-decoration: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.applyButton:hover {
+  background: #f0bd16;
+  border-color: #f0bd16;
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 24px rgba(226, 169, 0, 0.2);
+}
+
+.applyNote {
+  margin-top: 18px !important;
+  margin-bottom: 0 !important;
+
+  color: #8292a1 !important;
+
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 80px 6vw 70px;
+  }
+
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .backLink {
+    justify-self: start;
+  }
+
+  .jobDetail {
+    padding: 55px 6vw 80px;
+  }
+
+  .jobGrid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .jobSidebar {
+    order: -1;
+  }
+
+  .applyCard {
+    position: relative;
+    top: auto;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 70px 22px 60px;
+  }
+
+  .heroInner {
+    gap: 30px;
+  }
+
+  .heroTitle {
+    font-size: clamp(48px, 15vw, 72px);
+    line-height: 0.94;
+  }
+
+  .heroText {
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .jobDetail {
+    padding: 45px 22px 70px;
+  }
+
+  .jobMeta {
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .jobMeta span {
+    font-size: 10px;
+    padding: 0 11px;
+  }
+
+  .jobContent section {
+    padding-bottom: 42px;
+    margin-bottom: 42px;
+  }
+
+  .jobContent h2 {
+    font-size: 36px;
+  }
+
+  .richText p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .requirementsList li {
+    font-size: 15px;
+  }
+
+  .applyCard {
+    padding: 28px 24px;
+  }
+
+  .applyCard h2 {
+    font-size: 34px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.backLink:focus-visible,
+.applyButton:focus-visible,
+.skill:focus-visible {
+  outline: 3px solid #e2a900;
+  outline-offset: 4px;
+}

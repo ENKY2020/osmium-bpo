@@ -1,42 +1,505 @@
+/* =========================================================
+   OSMIUM BPO — GLOBAL DESIGN SYSTEM
+   Phase 1
+   Premium Corporate / Editorial Foundation
+========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* =======================================================
+     BRAND PALETTE
+  ======================================================= */
+
+  --osmium-navy: #071a2f;
+  --osmium-navy-deep: #030d1a;
+  --osmium-navy-950: #040d1b;
+  --osmium-navy-900: #061326;
+  --osmium-navy-800: #0b1c32;
+  --osmium-navy-soft: #0d2744;
+
+  --osmium-gold: #f5b51b;
+  --osmium-gold-light: #ffc84a;
+  --osmium-gold-dark: #d99a00;
+
+  --osmium-white: #ffffff;
+  --osmium-cream: #f8f7f3;
+  --osmium-soft: #f2f1ed;
+
+  /* =======================================================
+     TEXT
+  ======================================================= */
+
+  --osmium-text: #071a2f;
+  --osmium-text-muted: #53657a;
+  --osmium-text-light: rgba(255, 255, 255, 0.68);
+
+  /* =======================================================
+     BORDERS
+  ======================================================= */
+
+  --osmium-border: rgba(7, 26, 47, 0.12);
+  --osmium-border-light: rgba(255, 255, 255, 0.12);
+  --osmium-border-gold: rgba(245, 181, 27, 0.3);
+
+  /* =======================================================
+     SEMANTIC COLORS
+  ======================================================= */
+
+  --background: var(--osmium-white);
+  --foreground: var(--osmium-text);
+
+  --white: var(--osmium-white);
+
+  --gold: var(--osmium-gold);
+  --gold-light: var(--osmium-gold-light);
+  --gold-dark: var(--osmium-gold-dark);
+
+  --navy: var(--osmium-navy);
+  --navy-950: var(--osmium-navy-950);
+  --navy-900: var(--osmium-navy-900);
+  --navy-800: var(--osmium-navy-800);
+
+  /* =======================================================
+     TYPOGRAPHY
+  ======================================================= */
+
+  --font-sans:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  --font-display:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  /*
+     Component aliases.
+
+     These can be overridden by Next/font variables
+     from layout.tsx when available.
+  */
+
+  --font-geist-sans:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  --font-playfair:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  /* =======================================================
+     LAYOUT
+  ======================================================= */
+
+  --container-width: 1240px;
+
+  /*
+     Component-compatible alias.
+     Hero and other sections can use --container
+     without creating their own layout system.
+  */
+
+  --container: 1240px;
+
+  --page-padding: 40px;
+
+  /* =======================================================
+     SPACING
+  ======================================================= */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+  --space-11: 80px;
+  --space-12: 96px;
+  --space-13: 120px;
+
+  /* =======================================================
+     RADIUS
+  ======================================================= */
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* =======================================================
+     SHADOWS
+  ======================================================= */
+
+  --shadow-soft:
+    0 12px 35px rgba(4, 18, 33, 0.08);
+
+  --shadow-medium:
+    0 20px 55px rgba(4, 18, 33, 0.12);
+
+  --shadow-deep:
+    0 35px 80px rgba(0, 0, 0, 0.22);
+
+  --shadow-gold:
+    0 12px 30px rgba(245, 181, 27, 0.18);
+
+  /* =======================================================
+     TRANSITIONS
+  ======================================================= */
+
+  --transition-fast:
+    180ms ease;
+
+  --transition-base:
+    300ms ease;
+
+  --transition-slow:
+    500ms ease;
+
+  /* =======================================================
+     Z-INDEX SYSTEM
+  ======================================================= */
+
+  --z-base: 1;
+  --z-content: 10;
+  --z-navigation: 50;
+  --z-overlay: 80;
+  --z-floating: 100;
+  --z-modal: 200;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+/* =========================================================
+   RESET
+========================================================= */
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
+
+/* =========================================================
+   DOCUMENT
+========================================================= */
+
+html {
+  width: 100%;
+  max-width: 100%;
+
+  background: var(--background);
+
+  scroll-behavior: smooth;
+
+  overflow-x: hidden;
+}
+
+
+body {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+
+  margin: 0;
+
+  overflow-x: hidden;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family: var(--font-sans);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+}
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#__next {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-weight: 400;
+
+  letter-spacing: -0.035em;
+
+  text-wrap: balance;
+}
+
+
+p {
+  margin: 0;
+
+  line-height: 1.7;
+}
+
+
+strong {
+  font-weight: 700;
+}
+
+
+em {
+  font-style: italic;
+}
+
+
+/* =========================================================
+   INTERACTIVE ELEMENTS
+========================================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+button {
+  border: 0;
+  background: none;
+}
+
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
 
 a {
   color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+
+img {
+  height: auto;
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+========================================================= */
+
+input,
+textarea,
+select {
+  width: 100%;
+
+  color: inherit;
+
+  background: transparent;
+}
+
+
+textarea {
+  resize: vertical;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+  color: var(--navy-950);
+  background: var(--gold);
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   CONTAINER SYSTEM
+========================================================= */
+
+.osmium-container {
+  width:
+    min(
+      calc(100% - (var(--page-padding) * 2)),
+      var(--container)
+    );
+
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   DISPLAY UTILITIES
+========================================================= */
+
+.osmium-gold {
+  color: var(--gold);
+}
+
+
+.osmium-navy {
+  color: var(--navy);
+}
+
+
+.osmium-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   SECTION FOUNDATION
+========================================================= */
+
+.osmium-section {
+  position: relative;
+  width: 100%;
+}
+
+
+.osmium-section-inner {
+  width:
+    min(
+      calc(100% - (var(--page-padding) * 2)),
+      var(--container)
+    );
+
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   RESPONSIVE — LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  :root {
+    --container: 1180px;
+    --page-padding: 32px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  :root {
+    --page-padding: 24px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: -0.03em;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  :root {
+    --page-padding: 18px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: -0.025em;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  :root {
+    --page-padding: 16px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
   html {
-    color-scheme: dark;
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

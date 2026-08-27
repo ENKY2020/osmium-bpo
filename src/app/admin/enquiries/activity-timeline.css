@@ -1,0 +1,241 @@
+.activity-timeline {
+  margin-top: 28px;
+  padding: 28px;
+  border: 1px solid #dbe3ec;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.activity-timeline__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e6ebf1;
+}
+
+.activity-timeline__eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: #d99b00;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.activity-timeline__title {
+  margin: 0;
+  color: #071b31;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.activity-timeline__subtitle {
+  margin: 6px 0 0;
+  color: #62748a;
+  font-size: 14px;
+}
+
+.activity-timeline__count {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: 1px solid #ead7a2;
+  border-radius: 999px;
+  background: #fff9e9;
+  color: #9b7000;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.activity-timeline__list {
+  padding-top: 26px;
+}
+
+.activity-timeline__item {
+  display: flex;
+  gap: 18px;
+}
+
+.activity-timeline__rail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.activity-timeline__icon {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #ead7a2;
+  border-radius: 50%;
+  background: #fff8e5;
+  color: #c98d00;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.activity-timeline__icon--status_change {
+  background: #eef5ff;
+  border-color: #cddff5;
+  color: #326ea8;
+}
+
+.activity-timeline__icon--note {
+  background: #f7f2ff;
+  border-color: #dfd1f5;
+  color: #7650a8;
+}
+
+.activity-timeline__icon--email,
+.activity-timeline__icon--call,
+.activity-timeline__icon--whatsapp {
+  background: #eff9f2;
+  border-color: #cde8d4;
+  color: #34834d;
+}
+
+.activity-timeline__line {
+  width: 1px;
+  flex: 1;
+  min-height: 42px;
+  background: #dce4ec;
+}
+
+.activity-timeline__content {
+  flex: 1;
+  min-width: 0;
+  padding: 2px 0 28px;
+}
+
+.activity-timeline__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.activity-timeline__type {
+  display: block;
+  margin-bottom: 5px;
+  color: #8a99aa;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.activity-timeline__top h4 {
+  margin: 0;
+  color: #09203a;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.activity-timeline__top time {
+  flex-shrink: 0;
+  color: #7a8999;
+  font-size: 12px;
+}
+
+.activity-timeline__description {
+  margin: 10px 0 0;
+  padding: 12px 14px;
+  border-radius: 9px;
+  background: #f6f8fa;
+  color: #4f6277;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.activity-timeline__status-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 7px 11px;
+  border: 1px solid #e1e7ee;
+  border-radius: 7px;
+  background: #f8fafc;
+  color: #68788b;
+  font-size: 12px;
+}
+
+.activity-timeline__status-change strong {
+  color: #09203a;
+}
+
+.activity-timeline__arrow {
+  color: #d99b00;
+  font-weight: 700;
+}
+
+.activity-timeline__author {
+  margin-top: 9px;
+  color: #8a99aa;
+  font-size: 11px;
+}
+
+.activity-timeline__author strong {
+  color: #50647a;
+}
+
+.activity-timeline__empty {
+  padding: 55px 20px;
+  text-align: center;
+}
+
+.activity-timeline__empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: #fff8e5;
+  color: #d99b00;
+  font-size: 22px;
+}
+
+.activity-timeline__empty h4 {
+  margin: 0;
+  color: #09203a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.activity-timeline__empty p {
+  margin: 7px auto 0;
+  max-width: 420px;
+  color: #708197;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .activity-timeline {
+    padding: 20px;
+  }
+
+  .activity-timeline__header {
+    flex-direction: column;
+  }
+
+  .activity-timeline__top {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .activity-timeline__top time {
+    font-size: 11px;
+  }
+}
