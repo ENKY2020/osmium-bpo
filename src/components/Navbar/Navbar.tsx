@@ -1,10 +1,20 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import styles from "./Navbar.module.css";
+
+/* =========================================================
+   OSMIUM BPO — NAVBAR
+   Production navigation component
+========================================================= */
 
 /* =========================================================
    CONFIGURATION
@@ -12,7 +22,25 @@ import styles from "./Navbar.module.css";
 
 const MOBILE_BREAKPOINT = 820;
 
+/*
+ * Temporary administrator recognition.
+ *
+ * This remains intentionally simple for the current
+ * deliverable. It can later be moved into a proper
+ * authorization / role system when the admin system
+ * is expanded.
+ */
 const ADMIN_EMAIL = "devosmiumbpo@gmail.com";
+
+/*
+ * The full account/profile area is not part of the
+ * current lightweight deliverable.
+ *
+ * Normal authenticated users therefore use the home
+ * page as a safe fallback instead of being sent to
+ * a route that does not exist yet.
+ */
+const USER_ACCOUNT_FALLBACK = "/";
 
 /* =========================================================
    COMPONENT
@@ -43,20 +71,26 @@ export default function Navbar() {
      DROPDOWN REFERENCES
   ======================================================= */
 
-  const servicesRef = useRef<HTMLDivElement>(null);
-  const whyRef = useRef<HTMLDivElement>(null);
+  const servicesRef =
+    useRef<HTMLDivElement>(null);
+
+  const whyRef =
+    useRef<HTMLDivElement>(null);
 
   /* =======================================================
      USER INFORMATION
   ======================================================= */
 
-  const userEmail = user?.email ?? "";
+  const userEmail =
+    user?.email?.trim() ?? "";
 
   const userName =
     user?.user_metadata?.full_name ||
     user?.user_metadata?.name ||
     user?.user_metadata?.user_name ||
-    userEmail.split("@")[0] ||
+    (userEmail
+      ? userEmail.split("@")[0]
+      : "") ||
     "User";
 
   const userAvatar =
@@ -64,20 +98,57 @@ export default function Navbar() {
     user?.user_metadata?.picture ||
     "";
 
+  const normalizedEmail =
+    userEmail.toLowerCase();
+
   const isAdmin =
-    userEmail.toLowerCase() ===
+    normalizedEmail ===
     ADMIN_EMAIL.toLowerCase();
 
+  /*
+   * Admin users go to the existing admin dashboard.
+   *
+   * Normal users use the safe fallback until the
+   * dedicated account page is implemented.
+   */
   const accountHref = isAdmin
     ? "/admin"
-    : "/profile";
+    : USER_ACCOUNT_FALLBACK;
 
   /* =======================================================
-     NAVIGATION HELPERS
+     ACTIVE NAVIGATION
   ======================================================= */
 
-  const closeMenu = () => {
+  const isHomeActive =
+    pathname === "/";
+
+  const isServicesActive =
+    pathname === "/services";
+
+  const isAboutActive =
+    pathname === "/about";
+
+  const isWhyOsmiumActive =
+    pathname === "/why-osmium";
+
+  const isCareersActive =
+    pathname === "/careers" ||
+    pathname.startsWith("/careers/");
+
+  const isContactActive =
+    pathname === "/contact";
+
+  /* =======================================================
+     MENU HELPERS
+  ======================================================= */
+
+  const closeAllMenus = () => {
     setMenuOpen(false);
+    setServicesOpen(false);
+    setWhyOpen(false);
+  };
+
+  const closeDesktopDropdowns = () => {
     setServicesOpen(false);
     setWhyOpen(false);
   };
@@ -91,13 +162,51 @@ export default function Navbar() {
   };
 
   const toggleServices = () => {
-    setServicesOpen((current) => !current);
+    setServicesOpen(
+      (current) => !current
+    );
+
     setWhyOpen(false);
   };
 
   const toggleWhy = () => {
-    setWhyOpen((current) => !current);
+    setWhyOpen(
+      (current) => !current
+    );
+
     setServicesOpen(false);
+  };
+
+  /* =======================================================
+     MOBILE NAVIGATION HELPERS
+  ======================================================= */
+
+  const handleMobileLinkClick = () => {
+    closeAllMenus();
+  };
+
+  const handleMobileServicesLinkClick = () => {
+    closeAllMenus();
+  };
+
+  const handleMobileWhyLinkClick = () => {
+    closeAllMenus();
+  };
+
+  /* =======================================================
+     SIGN OUT
+  ======================================================= */
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      closeAllMenus();
+    } catch (error) {
+      console.error(
+        "[Navbar] Sign out failed:",
+        error
+      );
+    }
   };
 
   /* =======================================================
@@ -105,14 +214,21 @@ export default function Navbar() {
   ======================================================= */
 
   useEffect(() => {
-    const handlePointerDown = (event: MouseEvent) => {
-      const target = event.target as Node;
+    const handlePointerDown = (
+      event: MouseEvent
+    ) => {
+      const target =
+        event.target as Node;
 
       const clickedServices =
-        servicesRef.current?.contains(target);
+        servicesRef.current?.contains(
+          target
+        );
 
       const clickedWhy =
-        whyRef.current?.contains(target);
+        whyRef.current?.contains(
+          target
+        );
 
       if (!clickedServices) {
         setServicesOpen(false);
@@ -137,16 +253,30 @@ export default function Navbar() {
   }, []);
 
   /* =======================================================
-     RESPONSIVE MENU CONTROL
+     CLOSE MENUS WHEN ROUTE CHANGES
+  ======================================================= */
+
+  useEffect(() => {
+    closeAllMenus();
+  }, [pathname]);
+
+  /* =======================================================
+     RESPONSIVE MENU SAFETY
   ======================================================= */
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > MOBILE_BREAKPOINT) {
+      if (
+        window.innerWidth >
+        MOBILE_BREAKPOINT
+      ) {
         setMenuOpen(false);
       }
 
-      if (window.innerWidth <= MOBILE_BREAKPOINT) {
+      if (
+        window.innerWidth <=
+        MOBILE_BREAKPOINT
+      ) {
         setServicesOpen(false);
         setWhyOpen(false);
       }
@@ -185,9 +315,7 @@ export default function Navbar() {
         return;
       }
 
-      setMenuOpen(false);
-      setServicesOpen(false);
-      setWhyOpen(false);
+      closeAllMenus();
     };
 
     window.addEventListener(
@@ -208,64 +336,13 @@ export default function Navbar() {
   ]);
 
   /* =======================================================
-     ACTIVE NAVIGATION STATES
+     USER DISPLAY HELPERS
   ======================================================= */
 
-  const isHomeActive =
-    pathname === "/";
-
-  const isServicesActive =
-    pathname === "/services";
-
-  const isAboutActive =
-    pathname === "/about";
-
-  const isWhyOsmiumActive =
-    pathname === "/why-osmium";
-
-  const isCareersActive =
-    pathname === "/careers" ||
-    pathname.startsWith("/careers/");
-
-  const isContactActive =
-    pathname === "/contact";
-
-  /* =======================================================
-     MOBILE SERVICE NAVIGATION
-  ======================================================= */
-
-  const handleServiceNavigation = () => {
-    setServicesOpen(false);
-    setWhyOpen(false);
-    setMenuOpen(false);
-  };
-
-  /* =======================================================
-     MOBILE WHY OSMIUM NAVIGATION
-  ======================================================= */
-
-  const handleWhyNavigation = () => {
-    setWhyOpen(false);
-    setServicesOpen(false);
-    setMenuOpen(false);
-  };
-
-  /* =======================================================
-     SIGN OUT
-  ======================================================= */
-
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-
-      closeMenu();
-    } catch (error) {
-      console.error(
-        "[Navbar] Sign out failed:",
-        error
-      );
-    }
-  };
+  const userInitial =
+    userName
+      .charAt(0)
+      .toUpperCase() || "U";
 
   /* =======================================================
      RENDER
@@ -283,12 +360,17 @@ export default function Navbar() {
           href="/"
           className={styles.brand}
           aria-label="Osmium BPO home"
-          onClick={closeMenu}
+          onClick={
+            handleMobileLinkClick
+          }
         >
-          <img
+          <Image
             src="/brand/osmium-logo.jpg"
             alt="Osmium BPO"
+            width={175}
+            height={64}
             className={styles.brandLogo}
+            priority
           />
         </Link>
 
@@ -301,7 +383,9 @@ export default function Navbar() {
           aria-label="Main navigation"
         >
 
-          {/* HOME */}
+          {/* =================================================
+              HOME
+          ================================================= */}
 
           <Link
             href="/"
@@ -339,15 +423,21 @@ export default function Navbar() {
                   : ""
               }`}
               aria-haspopup="true"
-              aria-expanded={servicesOpen}
-              onClick={toggleServices}
+              aria-expanded={
+                servicesOpen
+              }
+              onClick={
+                toggleServices
+              }
             >
               <span>
                 Services
               </span>
 
               <span
-                className={styles.navChevron}
+                className={
+                  styles.navChevron
+                }
                 aria-hidden="true"
               >
                 ⌄
@@ -355,13 +445,19 @@ export default function Navbar() {
             </button>
 
             <div
-              className={styles.servicesDropdown}
+              className={
+                styles.servicesDropdown
+              }
               aria-label="Services options"
             >
               <Link
                 href="/services"
-                className={styles.serviceOption}
-                onClick={closeServices}
+                className={
+                  styles.serviceOption
+                }
+                onClick={
+                  closeServices
+                }
               >
                 <span
                   className={
@@ -399,8 +495,12 @@ export default function Navbar() {
 
               <Link
                 href="/#services"
-                className={styles.serviceOption}
-                onClick={closeServices}
+                className={
+                  styles.serviceOption
+                }
+                onClick={
+                  closeServices
+                }
               >
                 <span
                   className={
@@ -452,7 +552,9 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* ABOUT */}
+          {/* =================================================
+              ABOUT
+          ================================================= */}
 
           <Link
             href="/about"
@@ -498,7 +600,9 @@ export default function Navbar() {
               </span>
 
               <span
-                className={styles.navChevron}
+                className={
+                  styles.navChevron
+                }
                 aria-hidden="true"
               >
                 ⌄
@@ -506,12 +610,16 @@ export default function Navbar() {
             </button>
 
             <div
-              className={styles.servicesDropdown}
+              className={
+                styles.servicesDropdown
+              }
               aria-label="Why Osmium options"
             >
               <Link
                 href="/why-osmium"
-                className={styles.serviceOption}
+                className={
+                  styles.serviceOption
+                }
                 onClick={closeWhy}
               >
                 <span
@@ -550,7 +658,9 @@ export default function Navbar() {
 
               <Link
                 href="/#why-osmium"
-                className={styles.serviceOption}
+                className={
+                  styles.serviceOption
+                }
                 onClick={closeWhy}
               >
                 <span
@@ -603,7 +713,9 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* CAREERS */}
+          {/* =================================================
+              CAREERS
+          ================================================= */}
 
           <Link
             href="/careers"
@@ -621,7 +733,9 @@ export default function Navbar() {
             Careers
           </Link>
 
-          {/* CONTACT */}
+          {/* =================================================
+              CONTACT
+          ================================================= */}
 
           <Link
             href="/contact"
@@ -638,11 +752,10 @@ export default function Navbar() {
           >
             Contact
           </Link>
-
         </nav>
 
         {/* =================================================
-            DESKTOP ACCOUNT
+            DESKTOP ACCOUNT / SIGN IN
         ================================================= */}
 
         {!loading && user ? (
@@ -656,7 +769,11 @@ export default function Navbar() {
           >
             <Link
               href={accountHref}
-              aria-label="Open account"
+              aria-label={
+                isAdmin
+                  ? "Open administrator dashboard"
+                  : "Open account"
+              }
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -664,14 +781,16 @@ export default function Navbar() {
                 color: "#ffffff",
                 textDecoration: "none",
                 padding: "5px 8px",
+                borderRadius: "3px",
               }}
             >
               {userAvatar ? (
-                <img
+                <Image
                   src={userAvatar}
                   alt=""
                   width={34}
                   height={34}
+                  unoptimized
                   style={{
                     width: "34px",
                     height: "34px",
@@ -683,6 +802,7 @@ export default function Navbar() {
                 />
               ) : (
                 <span
+                  aria-hidden="true"
                   style={{
                     width: "34px",
                     height: "34px",
@@ -695,9 +815,7 @@ export default function Navbar() {
                     fontSize: "13px",
                   }}
                 >
-                  {userName
-                    .charAt(0)
-                    .toUpperCase()}
+                  {userInitial}
                 </span>
               )}
 
@@ -706,12 +824,18 @@ export default function Navbar() {
                   display: "flex",
                   flexDirection: "column",
                   lineHeight: 1.15,
+                  minWidth: 0,
                 }}
               >
                 <strong
                   style={{
                     fontSize: "10px",
                     fontWeight: 700,
+                    color: "#ffffff",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    maxWidth: "120px",
                   }}
                 >
                   {userName}
@@ -722,8 +846,10 @@ export default function Navbar() {
                     marginTop: "3px",
                     fontSize: "7px",
                     color: "#f5b51b",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
+                    textTransform:
+                      "uppercase",
+                    letterSpacing:
+                      "0.08em",
                     fontWeight: 700,
                   }}
                 >
@@ -740,7 +866,8 @@ export default function Navbar() {
               style={{
                 minHeight: "40px",
                 padding: "0 12px",
-                background: "transparent",
+                background:
+                  "transparent",
                 color:
                   "rgba(255,255,255,0.72)",
                 border:
@@ -750,6 +877,8 @@ export default function Navbar() {
                 fontSize: "9px",
                 fontWeight: 700,
                 cursor: "pointer",
+                transition:
+                  "border-color 180ms ease, color 180ms ease",
               }}
             >
               Sign out
@@ -788,17 +917,18 @@ export default function Navbar() {
           }
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
-          onClick={() =>
+          onClick={() => {
             setMenuOpen(
               (current) => !current
-            )
-          }
+            );
+            setServicesOpen(false);
+            setWhyOpen(false);
+          }}
         >
           <span />
           <span />
           <span />
         </button>
-
       </div>
 
       {/* =====================================================
@@ -819,7 +949,9 @@ export default function Navbar() {
           aria-label="Mobile navigation"
         >
 
-          {/* HOME */}
+          {/* =================================================
+              HOME
+          ================================================= */}
 
           <Link
             href="/"
@@ -828,8 +960,12 @@ export default function Navbar() {
                 ? styles.active
                 : ""
             }`}
-            tabIndex={menuOpen ? 0 : -1}
-            onClick={closeMenu}
+            tabIndex={
+              menuOpen ? 0 : -1
+            }
+            onClick={
+              handleMobileLinkClick
+            }
           >
             <span>
               Home
@@ -856,9 +992,13 @@ export default function Navbar() {
               className={
                 styles.mobileServicesTrigger
               }
-              aria-expanded={servicesOpen}
+              aria-expanded={
+                servicesOpen
+              }
               aria-controls="mobile-services-options"
-              onClick={toggleServices}
+              onClick={
+                toggleServices
+              }
             >
               <span>
                 Services
@@ -887,7 +1027,7 @@ export default function Navbar() {
                     : -1
                 }
                 onClick={
-                  handleServiceNavigation
+                  handleMobileServicesLinkClick
                 }
               >
                 <span>
@@ -915,7 +1055,7 @@ export default function Navbar() {
                     : -1
                 }
                 onClick={
-                  handleServiceNavigation
+                  handleMobileServicesLinkClick
                 }
               >
                 <span>
@@ -933,7 +1073,9 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* ABOUT */}
+          {/* =================================================
+              ABOUT
+          ================================================= */}
 
           <Link
             href="/about"
@@ -942,8 +1084,12 @@ export default function Navbar() {
                 ? styles.active
                 : ""
             }`}
-            tabIndex={menuOpen ? 0 : -1}
-            onClick={closeMenu}
+            tabIndex={
+              menuOpen ? 0 : -1
+            }
+            onClick={
+              handleMobileLinkClick
+            }
           >
             <span>
               About Us
@@ -1001,7 +1147,7 @@ export default function Navbar() {
                     : -1
                 }
                 onClick={
-                  handleWhyNavigation
+                  handleMobileWhyLinkClick
                 }
               >
                 <span>
@@ -1029,7 +1175,7 @@ export default function Navbar() {
                     : -1
                 }
                 onClick={
-                  handleWhyNavigation
+                  handleMobileWhyLinkClick
                 }
               >
                 <span>
@@ -1047,7 +1193,9 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* CAREERS */}
+          {/* =================================================
+              CAREERS
+          ================================================= */}
 
           <Link
             href="/careers"
@@ -1056,8 +1204,12 @@ export default function Navbar() {
                 ? styles.active
                 : ""
             }`}
-            tabIndex={menuOpen ? 0 : -1}
-            onClick={closeMenu}
+            tabIndex={
+              menuOpen ? 0 : -1
+            }
+            onClick={
+              handleMobileLinkClick
+            }
           >
             <span>
               Careers
@@ -1068,7 +1220,9 @@ export default function Navbar() {
             </strong>
           </Link>
 
-          {/* CONTACT */}
+          {/* =================================================
+              CONTACT
+          ================================================= */}
 
           <Link
             href="/contact"
@@ -1077,8 +1231,12 @@ export default function Navbar() {
                 ? styles.active
                 : ""
             }`}
-            tabIndex={menuOpen ? 0 : -1}
-            onClick={closeMenu}
+            tabIndex={
+              menuOpen ? 0 : -1
+            }
+            onClick={
+              handleMobileLinkClick
+            }
           >
             <span>
               Contact
@@ -1104,7 +1262,14 @@ export default function Navbar() {
             >
               <Link
                 href={accountHref}
-                onClick={closeMenu}
+                onClick={
+                  handleMobileLinkClick
+                }
+                aria-label={
+                  isAdmin
+                    ? "Open administrator dashboard"
+                    : "Open account"
+                }
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -1112,14 +1277,16 @@ export default function Navbar() {
                   color: "#ffffff",
                   textDecoration: "none",
                   padding: "10px 4px",
+                  borderRadius: "3px",
                 }}
               >
                 {userAvatar ? (
-                  <img
+                  <Image
                     src={userAvatar}
                     alt=""
                     width={42}
                     height={42}
+                    unoptimized
                     style={{
                       width: "42px",
                       height: "42px",
@@ -1131,6 +1298,7 @@ export default function Navbar() {
                   />
                 ) : (
                   <span
+                    aria-hidden="true"
                     style={{
                       width: "42px",
                       height: "42px",
@@ -1140,11 +1308,10 @@ export default function Navbar() {
                       background: "#f5b51b",
                       color: "#071426",
                       fontWeight: 800,
+                      fontSize: "14px",
                     }}
                   >
-                    {userName
-                      .charAt(0)
-                      .toUpperCase()}
+                    {userInitial}
                   </span>
                 )}
 
@@ -1152,11 +1319,17 @@ export default function Navbar() {
                   style={{
                     display: "flex",
                     flexDirection: "column",
+                    minWidth: 0,
                   }}
                 >
                   <strong
                     style={{
                       fontSize: "14px",
+                      color: "#ffffff",
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      maxWidth: "220px",
                     }}
                   >
                     {userName}
@@ -1170,6 +1343,8 @@ export default function Navbar() {
                       fontWeight: 700,
                       textTransform:
                         "uppercase",
+                      letterSpacing:
+                        "0.08em",
                     }}
                   >
                     {isAdmin
@@ -1186,7 +1361,8 @@ export default function Navbar() {
                   width: "100%",
                   minHeight: "48px",
                   marginTop: "8px",
-                  background: "transparent",
+                  background:
+                    "transparent",
                   color:
                     "rgba(255,255,255,0.75)",
                   border:
@@ -1204,11 +1380,15 @@ export default function Navbar() {
           ) : (
             <Link
               href="/login"
-              className={styles.mobileNavCta}
+              className={
+                styles.mobileNavCta
+              }
               tabIndex={
                 menuOpen ? 0 : -1
               }
-              onClick={closeMenu}
+              onClick={
+                handleMobileLinkClick
+              }
             >
               <span>
                 Sign In
@@ -1227,11 +1407,15 @@ export default function Navbar() {
           {!user && (
             <Link
               href="/contact"
-              className={styles.mobileNavCta}
+              className={
+                styles.mobileNavCta
+              }
               tabIndex={
                 menuOpen ? 0 : -1
               }
-              onClick={closeMenu}
+              onClick={
+                handleMobileLinkClick
+              }
               style={{
                 marginTop: "10px",
               }}
