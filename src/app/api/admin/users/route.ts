@@ -76,11 +76,11 @@ export async function GET() {
     const currentEmail =
       user.email?.trim().toLowerCase() ?? "";
 
-    const isAdmin = ADMIN_EMAILS.some(
-      (adminEmail) =>
-        adminEmail.trim().toLowerCase() ===
-        currentEmail
-    );
+ 
+const isAdmin = ADMIN_EMAILS.some(
+  (adminEmail) =>
+    adminEmail.trim().toLowerCase() === currentEmail
+);
 
     if (!isAdmin) {
       console.warn(

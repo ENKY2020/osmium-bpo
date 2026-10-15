@@ -30,8 +30,10 @@ const MOBILE_BREAKPOINT = 820;
  * authorization / role system when the admin system
  * is expanded.
  */
-const ADMIN_EMAIL = "devosmiumbpo@gmail.com";
-
+const ADMIN_EMAILS = [
+  "devosmiumbpo@gmail.com",
+  "jeffnjubi@gmail.com",
+];
 /*
  * The full account/profile area is not part of the
  * current lightweight deliverable.
@@ -98,12 +100,15 @@ export default function Navbar() {
     user?.user_metadata?.picture ||
     "";
 
-  const normalizedEmail =
-    userEmail.toLowerCase();
+  
 
-  const isAdmin =
-    normalizedEmail ===
-    ADMIN_EMAIL.toLowerCase();
+const normalizedEmail = userEmail.toLowerCase();
+
+
+const isAdmin = ADMIN_EMAILS.some(
+  (adminEmail) =>
+    adminEmail.trim().toLowerCase() === normalizedEmail
+);
 
   /*
    * Admin users go to the existing admin dashboard.
@@ -148,10 +153,7 @@ export default function Navbar() {
     setWhyOpen(false);
   };
 
-  const closeDesktopDropdowns = () => {
-    setServicesOpen(false);
-    setWhyOpen(false);
-  };
+ 
 
   const closeServices = () => {
     setServicesOpen(false);
